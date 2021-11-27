@@ -13,6 +13,7 @@ import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.graphics.Animation;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -148,11 +149,17 @@ public class Bomber extends Movable {
         Bomb newBomb = new Bomb(posX, posY, now, flameSize, this, Animation.bomb.getFxImages());
         bombList.add(newBomb);
         entities.add(newBomb);
+
+        //add am thanh dat bom
+        Sound.playPlaceNewBomb();
     }
 
     public void removeBomb(List<Entity> entities, Bomb bomb) {
         bombList.remove(bomb);
         entities.remove(bomb);
+
+        //add am thanh bom no
+        Sound.playBombExplose();
     }
 
     public int getNumberLives() {
