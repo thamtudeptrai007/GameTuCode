@@ -17,14 +17,42 @@ public class SpriteSheet {
 	public BufferedImage image;
 
 	public static SpriteSheet tiles = new SpriteSheet("/textures/classic.png", 256);
-	
+	public static SpriteSheet tiles_player_down1 = new SpriteSheet("/new_sprites/player_down_1_nk.png", 16);
+	public static SpriteSheet tiles_player_down2 = new SpriteSheet("/new_sprites/player_down_2_nk.png", 16);
+	public static SpriteSheet tiles_player_up1 = new SpriteSheet("/new_sprites/player_up_1_nk.png", 16);
+	public static SpriteSheet tiles_player_up2 = new SpriteSheet("/new_sprites/player_up_2_nk.png", 16);
+	public static SpriteSheet tiles_player_left1 = new SpriteSheet("/new_sprites/player_left_1_nk.png", 16);
+	public static SpriteSheet tiles_player_left2 = new SpriteSheet("/new_sprites/player_left_2_nk.png", 16);
+	public static SpriteSheet tiles_player_right1 = new SpriteSheet("/new_sprites/player_right_1_nk.png", 16);
+	public static SpriteSheet tiles_player_right2 = new SpriteSheet("/new_sprites/player_right_2_nk.png", 16);
+	public static SpriteSheet tiles_player_die1 = new SpriteSheet("/new_sprites/player_die_1_gr.png", 16);
+	public static SpriteSheet tiles_player_die2 = new SpriteSheet("/new_sprites/player_die_2_gr.png", 16);
+	public static SpriteSheet tiles_player_die3 = new SpriteSheet("/new_sprites/player_die_3_gr.png", 16);
+
+	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites/grass_brown.png", 16);
+	public static SpriteSheet tiles_wall = new SpriteSheet("/new_sprites/wall1.png", 16);
+	public static SpriteSheet tiles_brick = new SpriteSheet("/new_sprites/brick.png", 16);
+
+	public static SpriteSheet tiles_bom1 = new SpriteSheet("/new_sprites/bom_1_pts.png", 16);
+	public static SpriteSheet tiles_bom2 = new SpriteSheet("/new_sprites/bom_2_pts.png", 16);
+	public static SpriteSheet tiles_bom3 = new SpriteSheet("/new_sprites/bom_3_pts.png", 16);
+
+	public static SpriteSheet tiles_powerup_bombs = new SpriteSheet("/new_sprites/powerup_bombs.png", 16);
+	public static SpriteSheet tiles_powerup_bombpass = new SpriteSheet("/new_sprites/powerup_bombpass.png", 16);
+	public static SpriteSheet tiles_powerup_detonator = new SpriteSheet("/new_sprites/powerup_detonator.png", 16);
+	public static SpriteSheet tiles_powerup_flamepass = new SpriteSheet("/new_sprites/powerup_flamepass.png", 16);
+	public static SpriteSheet tiles_powerup_flames = new SpriteSheet("/new_sprites/powerup_flames.png", 16);
+	public static SpriteSheet tiles_powerup_speed = new SpriteSheet("/new_sprites/powerup_speed.png", 16);
+	public static SpriteSheet tiles_powerup_wallpass = new SpriteSheet("/new_sprites/powerup_wallpass.png", 16);
+
+
 	public SpriteSheet(String path, int size) {
 		_path = path;
 		SIZE = size;
 		_pixels = new int[SIZE * SIZE];
 		load();
 	}
-	
+
 	private void load() {
 		try {
 			URL a = SpriteSheet.class.getResource(_path);

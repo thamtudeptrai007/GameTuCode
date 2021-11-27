@@ -7,32 +7,32 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import uet.oop.bomberman.entities.Bomber;
-import uet.oop.bomberman.entities.Entity;
-import uet.oop.bomberman.entities.Grass;
-import uet.oop.bomberman.entities.Wall;
+import uet.oop.bomberman.Map.GameMap;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 public class BombermanGame extends Application {
     
-    public static final int WIDTH = 20;
-    public static final int HEIGHT = 15;
-    
-    private GraphicsContext gc;
-    private Canvas canvas;
-    private List<Entity> entities = new ArrayList<>();
-    private List<Entity> stillObjects = new ArrayList<>();
+    public static final int WIDTH = 31;
+    public static final int HEIGHT = 13;
+    public static final int FPS = 24;
+    public static final long TPF = 1000000000 / FPS;
+    public static final int numberLives = 1;
 
+    public GraphicsContext gc;
+    public Canvas canvas;
+    public GameMap map;
+
+    private long lastTime;
 
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         // Tao Canvas
         canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
         gc = canvas.getGraphicsContext2D();
@@ -48,43 +48,31 @@ public class BombermanGame extends Application {
         stage.setScene(scene);
         stage.show();
 
+        map = new GameMap(scene, gc, canvas,1);
+
+
         AnimationTimer timer = new AnimationTimer() {
             @Override
-            public void handle(long l) {
-                render();
-                update();
+            public void handle(long now) {
+                if (now - lastTime >= TPF) {
+                    map.render();
+                    map.update(now);
+                    lastTime = now;
+                }
             }
         };
         timer.start();
 
-        createMap();
+        map.createMap(numberLives);
 
-        Entity bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
-        entities.add(bomberman);
+        //keyBoard(scene, map.getBomber());
     }
 
-    public void createMap() {
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < HEIGHT; j++) {
-                Entity object;
-                if (j == 0 || j == HEIGHT - 1 || i == 0 || i == WIDTH - 1) {
-                    object = new Wall(i, j, Sprite.wall.getFxImage());
-                }
-                else {
-                    object = new Grass(i, j, Sprite.grass.getFxImage());
-                }
-                stillObjects.add(object);
-            }
-        }
-    }
-
-    public void update() {
-        entities.forEach(Entity::update);
-    }
-
-    public void render() {
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        stillObjects.forEach(g -> g.render(gc));
-        entities.forEach(g -> g.render(gc));
+    public void keyBoard(Scene scene, Bomber bomber) {
+        scene.setOnKeyPressed(bomber::press);
+        /*scene.setOnKeyPressed(keyEvent -> {
+            bomber.press(keyEvent);
+        });*/
+        scene.setOnKeyPressed(bomber::release);
     }
 }

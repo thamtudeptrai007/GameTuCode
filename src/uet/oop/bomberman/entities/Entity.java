@@ -5,7 +5,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import uet.oop.bomberman.entities.DynamicObject.Brick;
+import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.graphics.Sprite;
+
+import java.util.List;
 
 public abstract class Entity {
     //Tọa độ X tính từ góc trái trên trong Canvas
@@ -23,8 +27,54 @@ public abstract class Entity {
         this.img = img;
     }
 
+    public Entity getAt(int XUnit, int YUnit, List<Entity> entities) {
+        for (Entity entity : entities) {
+            if (entity.getXUnit() == XUnit && entity.getYUnit() == YUnit) {
+                if (entity instanceof Brick || entity instanceof Wall)
+                    return entity;
+            }
+        }
+        return null;
+    }
+
+    public boolean checkCollision(Entity other) {
+        int curLeft = this.x;
+        int curRight = curLeft + Sprite.SCALED_SIZE - 1;
+        int curTop = this.y;
+        int curBottom = curTop + Sprite.SCALED_SIZE - 1;
+        int otherLeft = other.getX();
+        int otherRight = otherLeft + Sprite.SCALED_SIZE - 1;
+        int otherTop = other.getY();
+        int otherBottom = otherTop + Sprite.SCALED_SIZE - 1;
+
+        return !(curRight < otherLeft || curLeft > otherRight || curBottom < otherTop || curTop > otherBottom);
+    }
+
+    public static boolean checkCollision(int curLeft, int curTop, Entity other) {
+        int curRight = curLeft + Sprite.SCALED_SIZE - 1;
+        int curBottom = curTop + Sprite.SCALED_SIZE - 1;
+        int otherLeft = other.getX();
+        int otherRight = otherLeft + Sprite.SCALED_SIZE - 1;
+        int otherTop = other.getY();
+        int otherBottom = otherTop + Sprite.SCALED_SIZE - 1;
+
+        return !(curRight < otherLeft || curLeft > otherRight || curBottom < otherTop || curTop > otherBottom);
+    }
+
     public void render(GraphicsContext gc) {
         gc.drawImage(img, x, y);
     }
-    public abstract void update();
+    public abstract void update(List<Entity> entities, long now);
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getXUnit() { return x / Sprite.SCALED_SIZE; }
+
+    public int getYUnit() { return y / Sprite.SCALED_SIZE; }
 }
