@@ -1,9 +1,7 @@
-package uet.oop.bomberman.sound;
+package uet.oop.bomberman.Support;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.sound.sampled.*;
 

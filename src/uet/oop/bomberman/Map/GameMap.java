@@ -10,10 +10,7 @@ import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Balloom;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Oneal;
 import uet.oop.bomberman.entities.StaticObject.Grass;
-import uet.oop.bomberman.entities.StaticObject.Items.BombItem;
-import uet.oop.bomberman.entities.StaticObject.Items.FlameItem;
-import uet.oop.bomberman.entities.StaticObject.Items.Portal;
-import uet.oop.bomberman.entities.StaticObject.Items.SpeedItem;
+import uet.oop.bomberman.entities.StaticObject.Items.*;
 import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.entities.*;
 import uet.oop.bomberman.graphics.Animation;
@@ -33,6 +30,7 @@ public class GameMap {
     private int height;
     private int width;
     private char[][] map;
+    private int next = 1;
     private List<Entity> entities = new ArrayList<Entity>();
     //private List<Entity> stillObjects = new ArrayList<Entity>();
 
@@ -51,7 +49,8 @@ public class GameMap {
         height = scanner.nextInt();
         width = scanner.nextInt();
         map = new char[width][height];
-        scanner.nextLine();
+        for (int i = 0; i < next; i++)
+            scanner.nextLine();
         String line;
         for (int i = 0; i < height; i++) {
             line = scanner.nextLine();
@@ -98,7 +97,7 @@ public class GameMap {
                         object = new Brick(x, y, Sprite.brick.getFxImage());
                         break;
                     case 'l':
-                        entities.add(new SpeedItem(x, y, Sprite.powerup_live.getFxImage()));
+                        entities.add(new LiveItem(x, y, Sprite.powerup_live.getFxImage()));
                         object = new Brick(x, y, Sprite.brick.getFxImage());
                         break;
                     case 'p':
@@ -146,7 +145,6 @@ public class GameMap {
                 Bomber bomber = (Bomber) entities.get(i);
                 curLive = bomber.getNumberLives();
                 if (curLive == 0) {
-
                     System.out.println("You Lose");
                     System.exit(0);
                 }
@@ -158,6 +156,8 @@ public class GameMap {
                     int lastLive = ((Bomber) entities.get(j)).getNumberLives();
                     if (curLive - lastLive == 1) {
                         try {
+                            next = next + height + 1;
+                            next = (next > 70 ? 1 : next);
                             createMap(lastLive);
                         } catch (Exception e) {
 

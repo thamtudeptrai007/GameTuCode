@@ -35,5 +35,6 @@ Items:
 b - Bomb Item
 f - Flame Item
 s - Speed Item
+l - Live Item
 
 Kí tự khác các kí tự trên - Grass

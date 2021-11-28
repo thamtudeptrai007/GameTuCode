@@ -19,7 +19,7 @@ public class BombermanGame extends Application {
     public static final int HEIGHT = 13;
     public static final int FPS = 24;
     public static final long TPF = 1000000000 / FPS;
-    public static final int numberLives = 1;
+    public static final int numberLives = 7;
 
     public GraphicsContext gc;
     public Canvas canvas;

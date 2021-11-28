@@ -4,7 +4,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Pair;
 import uet.oop.bomberman.BombermanGame;
-import uet.oop.bomberman.Map.GameMap;
 import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.entities.DynamicObject.Bomb.Bomb;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy;
@@ -13,9 +12,8 @@ import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.graphics.Animation;
 import uet.oop.bomberman.graphics.Sprite;
-import uet.oop.bomberman.sound.Sound;
+import uet.oop.bomberman.Support.Sound;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,8 +37,6 @@ public class Bomber extends Movable {
             img = deadAnimation.get(currentImg);
             if (currentImg == deadAnimation.size() - 1) {
                 decreaseLive();
-                
-                //System.out.println(numberLives);
             }
             return;
         }
@@ -122,13 +118,13 @@ public class Bomber extends Movable {
         switch (direction) {
             case LEFT:
             case RIGHT:
-                if (Right - x < Sprite.SCALED_SIZE / 2) {
+                if (Right - x < Sprite.SCALED_SIZE / 2 + 4) {
                     posX++;
                 }
                 break;
             case UP:
             case DOWN:
-                if (Bot - y < Sprite.SCALED_SIZE / 2) {
+                if (Bot - y < Sprite.SCALED_SIZE / 2 + 4) {
                     posY++;
                 }
         }
@@ -175,7 +171,8 @@ public class Bomber extends Movable {
     }
 
     public void increaseLive() {
-        numberLives++;
+        if (numberLives < BombermanGame.numberLives)
+             numberLives++;
     }
 
     public void increaseSpeed(int value) {
