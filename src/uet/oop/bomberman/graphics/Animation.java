@@ -107,7 +107,7 @@ public class Animation {
 
     public static Animation powerup_bombpass = new Animation(Sprite.powerup_bombpass);
     public static Animation powerup_bombs = new Animation(Sprite.powerup_bombs);
-    public static Animation powerup_detonator = new Animation(Sprite.powerup_detonator);
+    public static Animation powerup_detonator = new Animation(Sprite.powerup_live);
     public static Animation powerup_flamepass = new Animation(Sprite.powerup_flamepass);
     public static Animation powerup_flames = new Animation(Sprite.powerup_flames);
     public static Animation powerup_speed = new Animation(Sprite.powerup_speed);

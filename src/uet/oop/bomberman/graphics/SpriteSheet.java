@@ -39,7 +39,7 @@ public class SpriteSheet {
 
 	public static SpriteSheet tiles_powerup_bombs = new SpriteSheet("/new_sprites/powerup_bombs.png", 16);
 	public static SpriteSheet tiles_powerup_bombpass = new SpriteSheet("/new_sprites/powerup_bombpass.png", 16);
-	public static SpriteSheet tiles_powerup_detonator = new SpriteSheet("/new_sprites/powerup_detonator.png", 16);
+	public static SpriteSheet tiles_powerup_live = new SpriteSheet("/new_sprites/powerup_live.png", 16);
 	public static SpriteSheet tiles_powerup_flamepass = new SpriteSheet("/new_sprites/powerup_flamepass.png", 16);
 	public static SpriteSheet tiles_powerup_flames = new SpriteSheet("/new_sprites/powerup_flames.png", 16);
 	public static SpriteSheet tiles_powerup_speed = new SpriteSheet("/new_sprites/powerup_speed.png", 16);

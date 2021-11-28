@@ -97,6 +97,10 @@ public class GameMap {
                         entities.add(new SpeedItem(x, y, Sprite.powerup_speed.getFxImage()));
                         object = new Brick(x, y, Sprite.brick.getFxImage());
                         break;
+                    case 'l':
+                        entities.add(new SpeedItem(x, y, Sprite.powerup_live.getFxImage()));
+                        object = new Brick(x, y, Sprite.brick.getFxImage());
+                        break;
                     case 'p':
                         Bomber bomber = new Bomber(x, y, Sprite.player_right.getFxImage());
                         bomber.setMoveAnimation(Direction.RIGHT, Animation.player_right.getFxImages());

@@ -186,7 +186,7 @@ public class Sprite {
 	public static Sprite powerup_flames = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_flames, 16, 16);
 	public static Sprite powerup_speed = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_speed, 16, 16);
 	public static Sprite powerup_wallpass = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_wallpass, 16, 16);
-	public static Sprite powerup_detonator = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_detonator, 16, 16);
+	public static Sprite powerup_live = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_live, 16, 16);
 	public static Sprite powerup_bombpass = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_bombpass, 16, 16);
 	public static Sprite powerup_flamepass = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_powerup_flamepass, 14, 14);
 
