@@ -23,11 +23,16 @@ public class Balloom extends Enemy {
         int randomDirection;
         if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
             List<Direction> dirCanMove = canMove(entities);
-            randomDirection = dirCanMove.get(generator.nextInt(dirCanMove.size())).getValue();
-            int lastDirection = direction.getValue();
-            if (generator.nextInt(100) < 60) {
-                if (dirCanMove.contains(Direction.getDirection(lastDirection))) {
-                    randomDirection = lastDirection;
+            if (dirCanMove.size() == 0) {
+                randomDirection = direction.getValue();
+            }
+            else {
+                randomDirection = dirCanMove.get(generator.nextInt(dirCanMove.size())).getValue();
+                int lastDirection = direction.getValue();
+                if (generator.nextInt(100) < 60) {
+                    if (dirCanMove.contains(Direction.getDirection(lastDirection))) {
+                        randomDirection = lastDirection;
+                    }
                 }
             }
         } else {

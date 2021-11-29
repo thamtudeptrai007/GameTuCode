@@ -103,6 +103,9 @@ public class Bomber extends Movable {
                     return new Pair<>(x, y);
                 }
             }
+            if (entity instanceof Bomb && !((Bomb) entity).isBombPass() && checkCollision(newX, newY, entity)) {
+                return new Pair<>(x, y);
+            }
         }
         return new Pair<>(newX, newY);
     }

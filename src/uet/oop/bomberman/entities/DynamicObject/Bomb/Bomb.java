@@ -17,9 +17,10 @@ import java.util.List;
 public class Bomb extends DynamicObject {
     public static final int timeToExplode = 2;
     private static final double SPF = 0.25;
-    private long setupTime;
-    private int size;
-    private Bomber bomber;
+    private final long setupTime;
+    private final int size;
+    private boolean bombPass = true;
+    private final Bomber bomber;
 
     public Bomb(int xUnit, int yUnit, long setupTime, int size, Bomber bomber, Image... img) {
         super(xUnit, yUnit, img);
@@ -33,6 +34,9 @@ public class Bomb extends DynamicObject {
         if ((now - setupTime) / 1000000000 >= timeToExplode) {
             explode(entities, now);
             return;
+        }
+        if (bombPass && !checkCollision(bomber)) {
+            bombPass = false;
         }
         img = animation.get(currentImg);
         timer += SPF;
@@ -128,5 +132,9 @@ public class Bomb extends DynamicObject {
                 entities.add(new Flame(xUnit, yUnit + i, Animation.explosion_vertical_down.getFxImages()));
             }
         }
+    }
+
+    public boolean isBombPass() {
+        return bombPass;
     }
 }
