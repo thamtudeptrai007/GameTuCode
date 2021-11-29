@@ -103,6 +103,18 @@ public class Sprite {
 
 	public static Sprite enemy_3_dead = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_down_1, 16, 16);
 
+	//enemy_4
+	public static Sprite enemy_4_left1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_left_1, 16, 16);
+	public static Sprite enemy_4_left2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_left_2, 16, 16);
+	public static Sprite enemy_4_right1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_right_1, 16, 16);
+	public static Sprite enemy_4_right2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_right_2, 16, 16);
+	public static Sprite enemy_4_up1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_up_1, 16, 16);
+	public static Sprite enemy_4_up2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_up_2, 16, 16);
+	public static Sprite enemy_4_down1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_down_1, 16, 16);
+	public static Sprite enemy_4_down2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy4_down_2, 16, 16);
+
+	public static Sprite enemy_4_dead = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_down_1, 16, 16);
+
 	//Minvo
 	public static Sprite minvo_left1 = new Sprite(DEFAULT_SIZE, 8, 5, SpriteSheet.tiles, 16, 16);
 	public static Sprite minvo_left2 = new Sprite(DEFAULT_SIZE, 8, 6, SpriteSheet.tiles, 16, 16);

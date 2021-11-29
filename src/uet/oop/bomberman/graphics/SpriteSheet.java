@@ -31,7 +31,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_player_die3 = new SpriteSheet("/new_sprites/player_die_3_gr.png", 16);
 
 	//load anh...
-	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites/grass_brown.png", 16);
+	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites/grass_blue_1.png", 16);
 	public static SpriteSheet tiles_wall = new SpriteSheet("/new_sprites/wall1.png", 16);
 	public static SpriteSheet tiles_brick = new SpriteSheet("/new_sprites/brick.png", 16);
 
@@ -77,7 +77,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_enemy3_left_2 = new SpriteSheet("/new_sprites/enemy3_left_2.png", 16);
 	public static SpriteSheet tiles_enemy3_right_1 = new SpriteSheet("/new_sprites/enemy3_right_1.png", 16);
 	public static SpriteSheet tiles_enemy3_right_2 = new SpriteSheet("/new_sprites/enemy3_right_2.png", 16);
-/*
+
 	public static SpriteSheet tiles_enemy4_down_1 = new SpriteSheet("/new_sprites/enemy4_down_1.png", 16);
 	public static SpriteSheet tiles_enemy4_down_2 = new SpriteSheet("/new_sprites/enemy4_down_2.png", 16);
 	public static SpriteSheet tiles_enemy4_up_1 = new SpriteSheet("/new_sprites/enemy4_up_1.png", 16);
@@ -86,7 +86,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_enemy4_left_2 = new SpriteSheet("/new_sprites/enemy4_left_2.png", 16);
 	public static SpriteSheet tiles_enemy4_right_1 = new SpriteSheet("/new_sprites/enemy4_right_1.png", 16);
 	public static SpriteSheet tiles_enemy4_right_2 = new SpriteSheet("/new_sprites/enemy4_right_2.png", 16);
-*/
+
 
 	public SpriteSheet(String path, int size) {
 		_path = path;

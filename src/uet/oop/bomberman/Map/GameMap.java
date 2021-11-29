@@ -9,6 +9,7 @@ import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_1_random;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_2_random_speed;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_3;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_4;
 import uet.oop.bomberman.entities.StaticObject.Grass;
 import uet.oop.bomberman.entities.StaticObject.Items.*;
 import uet.oop.bomberman.entities.StaticObject.Wall;
@@ -139,6 +140,15 @@ public class GameMap {
                         enemy_3.setMoveAnimation(Direction.DOWN, Animation.enemy_3_down.getFxImages());
                         enemy_3.setDeadAnimation(Animation.enemy_3_dead.getFxImages());
                         object = enemy_3;
+                        break;
+                    case '4':
+                        Enemy_4 enemy_4  = new Enemy_4(x, y, Animation.enemy_4_left.getFxImages());
+                        enemy_4.setMoveAnimation(Direction.RIGHT, Animation.enemy_4_right.getFxImages());
+                        enemy_4.setMoveAnimation(Direction.LEFT, Animation.enemy_4_left.getFxImages());
+                        enemy_4.setMoveAnimation(Direction.UP, Animation.enemy_4_up.getFxImages());
+                        enemy_4.setMoveAnimation(Direction.DOWN, Animation.enemy_4_down.getFxImages());
+                        enemy_4.setDeadAnimation(Animation.enemy_4_dead.getFxImages());
+                        object = enemy_4;
                         break;
                     default:
 

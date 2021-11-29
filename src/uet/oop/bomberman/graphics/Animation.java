@@ -58,6 +58,18 @@ public class Animation {
     public static Animation enemy_3_dead = new Animation(Sprite.enemy_3_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
+    // enemy_4
+    public static Animation enemy_4_left = new Animation(Sprite.enemy_4_left1,
+            Sprite.enemy_4_left2);
+    public static Animation enemy_4_right = new Animation(Sprite.enemy_4_right1,
+            Sprite.enemy_4_right2);
+    public static Animation enemy_4_up = new Animation(Sprite.enemy_4_up1,
+            Sprite.enemy_4_up2);
+    public static Animation enemy_4_down = new Animation(Sprite.enemy_4_down1,
+            Sprite.enemy_4_down2);
+    public static Animation enemy_4_dead = new Animation(Sprite.enemy_4_dead,
+            Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
+
     // Minvo
     public static Animation minvo_left = new Animation(Sprite.minvo_left1,
             Sprite.minvo_left2, Sprite.minvo_left3);
