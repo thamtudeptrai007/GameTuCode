@@ -40,7 +40,11 @@ public abstract class Enemy extends Movable  {
                 entities.remove(this);
             }
             return;
+
         }
+
+        enemyUpdate(entities, now);
+
         if (moving) {
             move(entities);
         }
