@@ -12,4 +12,17 @@ public enum Direction {
     public int getValue() {
         return value;
     }
+
+    public static Direction getDirection(int value) {
+        if (value == 0) {
+            return Direction.LEFT;
+        }
+        if (value == 1) {
+            return Direction.RIGHT;
+        }
+        if (value == 2) {
+            return Direction.UP;
+        }
+        return Direction.DOWN;
+    }
 }
