@@ -5,10 +5,7 @@ import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.DynamicObject.BrickExplode;
 import uet.oop.bomberman.entities.DynamicObject.DynamicObject;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
-import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Balloom;
-import uet.oop.bomberman.entities.DynamicObject.Movable.Movable;
 import uet.oop.bomberman.entities.Entity;
-import uet.oop.bomberman.entities.StaticObject.Items.FlameItem;
 import uet.oop.bomberman.graphics.Animation;
 
 import java.util.List;

@@ -9,10 +9,11 @@ import uet.oop.bomberman.graphics.Sprite;
 import java.util.List;
 import java.util.Random;
 
-public class Balloom extends Enemy {
-    public Balloom(int xUnit, int yUnit, Image... img) {
+public class Enemy_2_random_speed extends Enemy {
+
+    public Enemy_2_random_speed(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        moveSpeed = 2;
+        moveSpeedY = 4;
     }
 
     @Override
@@ -58,5 +59,4 @@ public class Balloom extends Enemy {
                 break;
         }
     }
-
 }

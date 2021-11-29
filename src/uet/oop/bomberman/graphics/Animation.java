@@ -22,28 +22,40 @@ public class Animation {
     /*
      * Character.
      */
-    // Balloom
-    public static Animation balloom_left = new Animation(Sprite.balloom_left1,
-            Sprite.balloom_left2, Sprite.balloom_left3);
-    public static Animation balloom_right = new Animation(Sprite.balloom_right1,
-            Sprite.balloom_right2, Sprite.balloom_right3);
-    public static Animation balloom_dead = new Animation(Sprite.balloom_dead,
+    // enemy_1_random
+    public static Animation enemy_1_random_left = new Animation(Sprite.enemy_1_random_left1,
+            Sprite.enemy_1_random_left2);
+    public static Animation enemy_1_random_right = new Animation(Sprite.enemy_1_random_right1,
+            Sprite.enemy_1_random_right2);
+    public static Animation enemy_1_random_up = new Animation(Sprite.enemy_1_random_up1,
+            Sprite.enemy_1_random_up2);
+    public static Animation enemy_1_random_down = new Animation(Sprite.enemy_1_random_down1,
+            Sprite.enemy_1_random_down2);
+    public static Animation enemy_1_random_dead = new Animation(Sprite.enemy_1_random_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
-    // ONEAL
-    public static Animation oneal_left = new Animation(Sprite.oneal_left1,
-            Sprite.oneal_left2, Sprite.oneal_left3);
-    public static Animation oneal_right = new Animation(Sprite.oneal_right1,
-            Sprite.oneal_right2, Sprite.oneal_right3);
-    public static Animation oneal_dead = new Animation(Sprite.oneal_dead,
+    // enemy_1_random_speed
+    public static Animation enemy_1_random_speed_left = new Animation(Sprite.enemy_1_random_speed_left1,
+            Sprite.enemy_1_random_speed_left2);
+    public static Animation enemy_1_random_speed_right = new Animation(Sprite.enemy_1_random_speed_right1,
+            Sprite.enemy_1_random_speed_right2);
+    public static Animation enemy_1_random_speed_up = new Animation(Sprite.enemy_1_random_speed_up1,
+            Sprite.enemy_1_random_speed_up2);
+    public static Animation enemy_1_random_speed_down = new Animation(Sprite.enemy_1_random_speed_down1,
+            Sprite.enemy_1_random_speed_down2);
+    public static Animation enemy_1_random_speed_dead = new Animation(Sprite.enemy_1_random_speed_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
-    // Doll
-    public static Animation doll_left = new Animation(Sprite.doll_left1,
-            Sprite.doll_left2, Sprite.doll_left3);
-    public static Animation doll_right = new Animation(Sprite.doll_right1,
-            Sprite.doll_right2, Sprite.doll_right3);
-    public static Animation doll_dead = new Animation(Sprite.doll_dead,
+    // enemy_3
+    public static Animation enemy_3_left = new Animation(Sprite.enemy_3_left1,
+            Sprite.enemy_3_left2);
+    public static Animation enemy_3_right = new Animation(Sprite.enemy_3_right1,
+            Sprite.enemy_3_right2);
+    public static Animation enemy_3_up = new Animation(Sprite.enemy_3_up1,
+            Sprite.enemy_3_up2);
+    public static Animation enemy_3_down = new Animation(Sprite.enemy_3_down1,
+            Sprite.enemy_3_down2);
+    public static Animation enemy_3_dead = new Animation(Sprite.enemy_3_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
     // Minvo

@@ -66,38 +66,42 @@ public class Sprite {
 	| Character
 	|--------------------------------------------------------------------------
 	 */
-	//BALLOM
-	public static Sprite balloom_left1 = new Sprite(DEFAULT_SIZE, 9, 0, SpriteSheet.tiles, 16, 16);
-	public static Sprite balloom_left2 = new Sprite(DEFAULT_SIZE, 9, 1, SpriteSheet.tiles, 16, 16);
-	public static Sprite balloom_left3 = new Sprite(DEFAULT_SIZE, 9, 2, SpriteSheet.tiles, 16, 16);
+	//BALLOM  enemy_1_random
+	public static Sprite enemy_1_random_left1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_left_1, 16, 16);
+	public static Sprite enemy_1_random_left2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_left_2, 16, 16);
 
-	public static Sprite balloom_right1 = new Sprite(DEFAULT_SIZE, 10, 0, SpriteSheet.tiles, 16, 16);
-	public static Sprite balloom_right2 = new Sprite(DEFAULT_SIZE, 10, 1, SpriteSheet.tiles, 16, 16);
-	public static Sprite balloom_right3 = new Sprite(DEFAULT_SIZE, 10, 2, SpriteSheet.tiles, 16, 16);
+	public static Sprite enemy_1_random_right1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_right_1, 16, 16);
+	public static Sprite enemy_1_random_right2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_right_2, 16, 16);
 
-	public static Sprite balloom_dead = new Sprite(DEFAULT_SIZE, 9, 3, SpriteSheet.tiles, 16, 16);
+	public static Sprite enemy_1_random_up1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_up_1, 16, 16);
+	public static Sprite enemy_1_random_up2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_up_2, 16, 16);
 
-	//ONEAL
-	public static Sprite oneal_left1 = new Sprite(DEFAULT_SIZE, 11, 0, SpriteSheet.tiles, 16, 16);
-	public static Sprite oneal_left2 = new Sprite(DEFAULT_SIZE, 11, 1, SpriteSheet.tiles, 16, 16);
-	public static Sprite oneal_left3 = new Sprite(DEFAULT_SIZE, 11, 2, SpriteSheet.tiles, 16, 16);
+	public static Sprite enemy_1_random_down1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_down_1, 16, 16);
+	public static Sprite enemy_1_random_down2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_down_2, 16, 16);
 
-	public static Sprite oneal_right1 = new Sprite(DEFAULT_SIZE, 12, 0, SpriteSheet.tiles, 16, 16);
-	public static Sprite oneal_right2 = new Sprite(DEFAULT_SIZE, 12, 1, SpriteSheet.tiles, 16, 16);
-	public static Sprite oneal_right3 = new Sprite(DEFAULT_SIZE, 12, 2, SpriteSheet.tiles, 16, 16);
+	public static Sprite enemy_1_random_dead = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy1_down_1, 16, 16);
+	//ONEAL enemy_1_random_speed
+	public static Sprite enemy_1_random_speed_left1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_left_1, 16, 16);
+	public static Sprite enemy_1_random_speed_left2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_left_2, 16, 16);
+	public static Sprite enemy_1_random_speed_right1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_right_1, 16, 16);
+	public static Sprite enemy_1_random_speed_right2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_right_2, 16, 16);
+	public static Sprite enemy_1_random_speed_up1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_up_1, 16, 16);
+	public static Sprite enemy_1_random_speed_up2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_up_2, 16, 16);
+	public static Sprite enemy_1_random_speed_down1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_down_1, 16, 16);
+	public static Sprite enemy_1_random_speed_down2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_down_2, 16, 16);
 
-	public static Sprite oneal_dead = new Sprite(DEFAULT_SIZE, 11, 3, SpriteSheet.tiles, 16, 16);
+	public static Sprite enemy_1_random_speed_dead = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy2_down_1, 16, 16);
+	//enemy_3
+	public static Sprite enemy_3_left1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_left_1, 16, 16);
+	public static Sprite enemy_3_left2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_left_2, 16, 16);
+	public static Sprite enemy_3_right1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_right_1, 16, 16);
+	public static Sprite enemy_3_right2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_right_2, 16, 16);
+	public static Sprite enemy_3_up1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_up_1, 16, 16);
+	public static Sprite enemy_3_up2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_up_2, 16, 16);
+	public static Sprite enemy_3_down1 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_down_1, 16, 16);
+	public static Sprite enemy_3_down2 = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_down_2, 16, 16);
 
-	//Doll
-	public static Sprite doll_left1 = new Sprite(DEFAULT_SIZE, 13, 0, SpriteSheet.tiles, 16, 16);
-	public static Sprite doll_left2 = new Sprite(DEFAULT_SIZE, 13, 1, SpriteSheet.tiles, 16, 16);
-	public static Sprite doll_left3 = new Sprite(DEFAULT_SIZE, 13, 2, SpriteSheet.tiles, 16, 16);
-
-	public static Sprite doll_right1 = new Sprite(DEFAULT_SIZE, 14, 0, SpriteSheet.tiles, 16, 16);
-	public static Sprite doll_right2 = new Sprite(DEFAULT_SIZE, 14, 1, SpriteSheet.tiles, 16, 16);
-	public static Sprite doll_right3 = new Sprite(DEFAULT_SIZE, 14, 2, SpriteSheet.tiles, 16, 16);
-
-	public static Sprite doll_dead = new Sprite(DEFAULT_SIZE, 13, 3, SpriteSheet.tiles, 16, 16);
+	public static Sprite enemy_3_dead = new Sprite(DEFAULT_SIZE, 0, 0, SpriteSheet.tiles_enemy3_down_1, 16, 16);
 
 	//Minvo
 	public static Sprite minvo_left1 = new Sprite(DEFAULT_SIZE, 8, 5, SpriteSheet.tiles, 16, 16);

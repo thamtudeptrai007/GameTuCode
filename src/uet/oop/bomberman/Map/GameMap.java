@@ -3,12 +3,12 @@ package uet.oop.bomberman.Map;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
-import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Balloom;
-import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Oneal;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_1_random;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_2_random_speed;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_3;
 import uet.oop.bomberman.entities.StaticObject.Grass;
 import uet.oop.bomberman.entities.StaticObject.Items.*;
 import uet.oop.bomberman.entities.StaticObject.Wall;
@@ -113,22 +113,32 @@ public class GameMap {
                         scene.setOnKeyReleased(bomber::release);
                         break;
                     case '1':
-                        Balloom balloom = new Balloom(x, y, Animation.balloom_left.getFxImages());
-                        balloom.setMoveAnimation(Direction.RIGHT, Animation.balloom_right.getFxImages());
-                        balloom.setMoveAnimation(Direction.LEFT, Animation.balloom_left.getFxImages());
-                        balloom.setMoveAnimation(Direction.UP, Animation.balloom_right.getFxImages());
-                        balloom.setMoveAnimation(Direction.DOWN, Animation.balloom_left.getFxImages());
-                        balloom.setDeadAnimation(Animation.balloom_dead.getFxImages());
+                        Enemy_1_random balloom = new Enemy_1_random(x, y, Animation.enemy_1_random_left.getFxImages());
+                        balloom.setMoveAnimation(Direction.RIGHT, Animation.enemy_1_random_right.getFxImages());
+                        balloom.setMoveAnimation(Direction.LEFT, Animation.enemy_1_random_left.getFxImages());
+                        balloom.setMoveAnimation(Direction.UP, Animation.enemy_1_random_up.getFxImages());
+                        balloom.setMoveAnimation(Direction.DOWN, Animation.enemy_1_random_down.getFxImages());
+                        balloom.setDeadAnimation(Animation.enemy_1_random_dead.getFxImages());
                         object = balloom;
                         break;
                     case '2':
-                        Oneal oneal = new Oneal(x, y, Animation.oneal_left.getFxImages());
-                        oneal.setMoveAnimation(Direction.RIGHT, Animation.oneal_right.getFxImages());
-                        oneal.setMoveAnimation(Direction.LEFT, Animation.oneal_left.getFxImages());
-                        oneal.setMoveAnimation(Direction.UP, Animation.oneal_right.getFxImages());
-                        oneal.setMoveAnimation(Direction.DOWN, Animation.oneal_left.getFxImages());
-                        oneal.setDeadAnimation(Animation.oneal_dead.getFxImages());
+                        Enemy_2_random_speed oneal = new Enemy_2_random_speed(x, y, Animation.enemy_1_random_speed_left.getFxImages());
+                        oneal.setMoveAnimation(Direction.RIGHT, Animation.enemy_1_random_speed_right.getFxImages());
+                        oneal.setMoveAnimation(Direction.LEFT, Animation.enemy_1_random_speed_left.getFxImages());
+                        oneal.setMoveAnimation(Direction.UP, Animation.enemy_1_random_speed_up.getFxImages());
+                        oneal.setMoveAnimation(Direction.DOWN, Animation.enemy_1_random_speed_down.getFxImages());
+                        oneal.setDeadAnimation(Animation.enemy_1_random_speed_dead.getFxImages());
                         object = oneal;
+                        break;
+
+                    case '3':
+                        Enemy_3 enemy_3  = new Enemy_3(x, y, Animation.enemy_3_left.getFxImages());
+                        enemy_3.setMoveAnimation(Direction.RIGHT, Animation.enemy_3_right.getFxImages());
+                        enemy_3.setMoveAnimation(Direction.LEFT, Animation.enemy_3_left.getFxImages());
+                        enemy_3.setMoveAnimation(Direction.UP, Animation.enemy_3_up.getFxImages());
+                        enemy_3.setMoveAnimation(Direction.DOWN, Animation.enemy_3_down.getFxImages());
+                        enemy_3.setDeadAnimation(Animation.enemy_3_dead.getFxImages());
+                        object = enemy_3;
                         break;
                     default:
 

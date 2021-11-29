@@ -9,11 +9,10 @@ import uet.oop.bomberman.graphics.Sprite;
 import java.util.List;
 import java.util.Random;
 
-public class Oneal extends Enemy {
-
-    public Oneal(int xUnit, int yUnit, Image... img) {
+public class Enemy_1_random extends Enemy {
+    public Enemy_1_random(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        moveSpeedY = 4;
+        moveSpeed = 2;
     }
 
     @Override
@@ -59,4 +58,5 @@ public class Oneal extends Enemy {
                 break;
         }
     }
+
 }
