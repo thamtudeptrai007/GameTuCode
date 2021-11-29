@@ -55,7 +55,8 @@ public class Bomber extends Movable {
         }
         img = moveAnimation.get(direction.getValue()).get(currentImg);
         for (Entity entity : entities) {
-            if (entity instanceof Enemy && checkCollision(entity)) {
+            if (entity instanceof Enemy && checkCollision(entity)
+                    && ((Enemy) entity).isAlive()) {
                 dead();
                 return;
             }
