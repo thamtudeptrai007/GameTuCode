@@ -8,6 +8,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Map.GameMap;
+import uet.oop.bomberman.Support.Sound;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -50,6 +51,7 @@ public class BombermanGame extends Application {
 
         map = new GameMap(scene, gc, canvas,1);
 
+        Sound.playBackground();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override

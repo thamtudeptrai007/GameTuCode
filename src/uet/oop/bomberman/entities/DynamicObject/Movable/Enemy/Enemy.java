@@ -3,6 +3,7 @@ package uet.oop.bomberman.entities.DynamicObject.Movable.Enemy;
 import javafx.scene.image.Image;
 import javafx.util.Pair;
 import uet.oop.bomberman.Support.Direction;
+import uet.oop.bomberman.Support.Sound;
 import uet.oop.bomberman.entities.DynamicObject.Bomb.Bomb;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Movable;

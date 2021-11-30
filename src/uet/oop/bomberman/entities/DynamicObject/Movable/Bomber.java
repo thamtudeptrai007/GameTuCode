@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bomber extends Movable {
-    private static final int safeDistance = 20;
+    private static final int safeDistance = 10;
     private boolean newBomb = false;
-    private int flameSize = 1;
-    private int numberBombs = 1;
+    private int flameSize = 3;
+    private int numberBombs = 5;
     private int numberLives = BombermanGame.numberLives;
     private List<Bomb> bombList = new ArrayList<Bomb>();
 
@@ -64,6 +64,7 @@ public class Bomber extends Movable {
     }
 
     public Pair<Integer, Integer> trueCoordinates(List<Entity> entities, int newX, int newY) {
+        //Sound.playFootsteps();
         for (Entity entity : entities) {
             if (entity instanceof Brick || entity instanceof Wall) {
                 int otherLeft = entity.getX();
