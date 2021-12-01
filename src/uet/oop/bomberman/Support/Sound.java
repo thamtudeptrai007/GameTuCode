@@ -17,7 +17,7 @@ public class Sound {
     public static String newbomb = "res\\sound\\newbomb.wav";
     public static String destroy ="res\\sound\\destroy.wav";
     public static String footsteps ="res\\sound\\buoc_chan.wav";
-    public static String background ="res\\sound\\beat_ongTroiLamToiAnhChua.wav";
+    public static String background ="res\\sound\\beat_thangdien.wav";
 
     public static void play( String filePath){
         File file = new File(filePath);

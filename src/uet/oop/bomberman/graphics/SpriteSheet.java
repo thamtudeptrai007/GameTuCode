@@ -31,7 +31,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_player_die3 = new SpriteSheet("/new_sprites/player_die_3_gr.png", 16);
 
 	//load anh...
-	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites/grass_brown.png", 16);
+	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites/grass_grey.png", 16);
 	public static SpriteSheet tiles_wall = new SpriteSheet("/new_sprites/wall1.png", 16);
 	public static SpriteSheet tiles_brick = new SpriteSheet("/new_sprites/brick.png", 16);
 
