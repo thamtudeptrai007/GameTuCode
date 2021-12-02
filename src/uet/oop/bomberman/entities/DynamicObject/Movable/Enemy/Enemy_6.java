@@ -5,6 +5,8 @@ import uet.oop.bomberman.entities.Entity;
 
 import java.util.List;
 
+/// Boss di xuyen doc
+
 public class Enemy_6 extends Enemy{
     public Enemy_6(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);

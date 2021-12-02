@@ -15,6 +15,9 @@ import java.util.List;
 
 public abstract class Enemy extends Movable  {
 
+    protected final int[] listNewXUnit = {-1, 1, 0, 0};
+    protected final int[] listNewYUnit = {0, 0, -1, 1};
+
     public Enemy(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
         SPF = 0.25;
@@ -60,11 +63,10 @@ public abstract class Enemy extends Movable  {
         int xUnit = getXUnit();
         int yUnit = getYUnit();
         List<Direction> dir = new ArrayList<Direction>();
-        int row[] = {-1, 1, 0, 0};
-        int column[] = {0, 0, -1, 1};
+
         for (int i = 0; i < 4; i++) {
-            int newXUnit = xUnit + row[i];
-            int newYUnit = yUnit + column[i];
+            int newXUnit = xUnit + listNewXUnit[i];
+            int newYUnit = yUnit + listNewYUnit[i];
             if (getAt(newXUnit, newYUnit, entities) == null)
                 dir.add(Direction.getDirection(i));
         }

@@ -20,8 +20,8 @@ import java.util.List;
 public class Bomber extends Movable {
     private static final int safeDistance = 10;
     private boolean newBomb = false;
-    private int flameSize = 3;
-    private int numberBombs = 5;
+    private int flameSize = 1;
+    private int numberBombs = 1;
     private int numberLives = BombermanGame.numberLives;
     private List<Bomb> bombList = new ArrayList<Bomb>();
 
