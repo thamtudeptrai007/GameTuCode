@@ -161,6 +161,15 @@ public class GameMap {
                         enemy_5.setDeadAnimation(Animation.enemy_5_dead.getFxImages());
                         object = enemy_5;
                         break;
+                    case '6':
+                        Enemy_6 enemy_6  = new Enemy_6(x, y, Animation.enemy_6_left.getFxImages());
+                        enemy_6.setMoveAnimation(Direction.RIGHT, Animation.enemy_6_right.getFxImages());
+                        enemy_6.setMoveAnimation(Direction.LEFT, Animation.enemy_6_left.getFxImages());
+                        enemy_6.setMoveAnimation(Direction.UP, Animation.enemy_6_up.getFxImages());
+                        enemy_6.setMoveAnimation(Direction.DOWN, Animation.enemy_6_down.getFxImages());
+                        enemy_6.setDeadAnimation(Animation.enemy_6_dead.getFxImages());
+                        object = enemy_6;
+                        break;
                     default:
 
                 }

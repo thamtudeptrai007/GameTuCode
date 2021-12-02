@@ -6,6 +6,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_1_random;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_2_random_speed;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_5;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Movable;
 import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -62,7 +67,17 @@ public abstract class Entity {
     }
 
     public void render(GraphicsContext gc) {
-        gc.drawImage(img, x, y);
+        if (this instanceof Movable && !(this instanceof Enemy_1_random)
+                && !(this instanceof Enemy_2_random_speed) && !(this instanceof Bomber)) {
+            if (this instanceof Enemy_5) {
+                gc.drawImage(img, x, y - 15);
+            }
+            else {
+                gc.drawImage(img, x, y - 8);
+            }
+        }
+        else gc.drawImage(img, x, y);
+
     }
 
     public abstract void update(List<Entity> entities, long now);
