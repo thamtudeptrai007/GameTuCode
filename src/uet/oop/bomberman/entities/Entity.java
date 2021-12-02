@@ -67,7 +67,7 @@ public abstract class Entity {
     }
 
     public void render(GraphicsContext gc) {
-        if (this instanceof Movable && !(this instanceof Enemy_1_random)
+        /*if (this instanceof Movable && !(this instanceof Enemy_1_random)
                 && !(this instanceof Enemy_2_random_speed) && !(this instanceof Bomber)) {
             if (this instanceof Enemy_5) {
                 gc.drawImage(img, x, y - 15);
@@ -76,8 +76,8 @@ public abstract class Entity {
                 gc.drawImage(img, x, y - 8);
             }
         }
-        else gc.drawImage(img, x, y);
-
+        else gc.drawImage(img, x, y);*/
+        gc.drawImage(img, x, y);
     }
 
     public abstract void update(List<Entity> entities, long now);

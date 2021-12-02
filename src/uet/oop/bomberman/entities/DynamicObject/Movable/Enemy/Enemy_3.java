@@ -4,7 +4,6 @@ import javafx.scene.image.Image;
 import javafx.util.Pair;
 import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.Support.Direction;
-import uet.oop.bomberman.Support.Info;
 import uet.oop.bomberman.entities.DynamicObject.Bomb.Bomb;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
