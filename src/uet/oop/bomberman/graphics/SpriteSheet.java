@@ -72,10 +72,10 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_enemy2_left_2 = new SpriteSheet("/new_sprites_32/enemy1_left_2_gr.png", 32);
 	public static SpriteSheet tiles_enemy2_right_1 = new SpriteSheet("/new_sprites_32/enemy1_right_1_gr.png", 32);
 	public static SpriteSheet tiles_enemy2_right_2 = new SpriteSheet("/new_sprites_32/enemy1_right_2_gr.png", 32);
-	public static SpriteSheet tiles_enemy2_dead_1 = new SpriteSheet("/new_sprites_32/enemy1_dead_1.png", 32);
-	public static SpriteSheet tiles_enemy2_dead_2 = new SpriteSheet("/new_sprites_32/enemy1_dead_2.png", 32);
-	public static SpriteSheet tiles_enemy2_dead_3 = new SpriteSheet("/new_sprites_32/enemy1_dead_3.png", 32);
-	public static SpriteSheet tiles_enemy2_dead_4 = new SpriteSheet("/new_sprites_32/enemy1_dead_4.png", 32);
+	public static SpriteSheet tiles_enemy2_dead_1 = new SpriteSheet("/new_sprites_32/enemy1_dead_1_gr.png", 32);
+	public static SpriteSheet tiles_enemy2_dead_2 = new SpriteSheet("/new_sprites_32/enemy1_dead_2_gr.png", 32);
+	public static SpriteSheet tiles_enemy2_dead_3 = new SpriteSheet("/new_sprites_32/enemy1_dead_3_gr.png", 32);
+	public static SpriteSheet tiles_enemy2_dead_4 = new SpriteSheet("/new_sprites_32/enemy1_dead_4_gr.png", 32);
 
 	public static SpriteSheet tiles_enemy3_down_1 = new SpriteSheet("/new_sprites_32/enemy3_down_1.png", 32);
 	public static SpriteSheet tiles_enemy3_down_2 = new SpriteSheet("/new_sprites_32/enemy3_down_2.png", 32);
@@ -103,6 +103,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_enemy5_left_2 = new SpriteSheet("/new_sprites_32/kondoria_left3.png", 32);
 	public static SpriteSheet tiles_enemy5_right_1 = new SpriteSheet("/new_sprites_32/kondoria_right3.png", 32);
 	public static SpriteSheet tiles_enemy5_right_2 = new SpriteSheet("/new_sprites_32/kondoria_right2.png", 32);
+	public static SpriteSheet tiles_enemy5_dead = new SpriteSheet("/new_sprites_32/kondoria_dead.png", 32);
 
 
 

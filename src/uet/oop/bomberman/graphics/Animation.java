@@ -34,15 +34,15 @@ public class Animation {
     public static Animation enemy_1_random_dead = new Animation(Sprite.enemy_1_random_dead1,
             Sprite.enemy_1_random_dead2, Sprite.enemy_1_random_dead3, Sprite.enemy_1_random_dead4);
 
-    // enemy_1_random_speed
-    public static Animation enemy_1_random_speed_left = new Animation(Sprite.enemy_1_random_speed_left1,
-            Sprite.enemy_1_random_speed_left2);
-    public static Animation enemy_1_random_speed_right = new Animation(Sprite.enemy_1_random_speed_right1,
-            Sprite.enemy_1_random_speed_right2);
-    public static Animation enemy_1_random_speed_up = new Animation(Sprite.enemy_1_random_speed_up1,
-            Sprite.enemy_1_random_speed_up2);
-    public static Animation enemy_1_random_speed_down = new Animation(Sprite.enemy_1_random_speed_down1,
-            Sprite.enemy_1_random_speed_down2);
+    // enemy_2_random_speed
+    public static Animation enemy_1_random_speed_left = new Animation(Sprite.enemy_2_random_speed_left1,
+            Sprite.enemy_2_random_speed_left2);
+    public static Animation enemy_1_random_speed_right = new Animation(Sprite.enemy_2_random_speed_right1,
+            Sprite.enemy_2_random_speed_right2);
+    public static Animation enemy_1_random_speed_up = new Animation(Sprite.enemy_2_random_speed_up1,
+            Sprite.enemy_2_random_speed_up2);
+    public static Animation enemy_1_random_speed_down = new Animation(Sprite.enemy_2_random_speed_down1,
+            Sprite.enemy_2_random_speed_down2);
     public static Animation enemy_1_random_speed_dead =new Animation(Sprite.enemy_1_random_dead1,
             Sprite.enemy_1_random_dead2, Sprite.enemy_1_random_dead3);
 
@@ -79,7 +79,7 @@ public class Animation {
             Sprite.enemy_5_left2);
     public static Animation enemy_5_down = new Animation(Sprite.enemy_5_right1,
             Sprite.enemy_5_right2);
-    public static Animation enemy_5_dead = new Animation(Sprite.enemy_5_left1,
+    public static Animation enemy_5_dead = new Animation(Sprite.enemy_5_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
 

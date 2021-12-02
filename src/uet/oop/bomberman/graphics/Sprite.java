@@ -74,14 +74,14 @@ public class Sprite {
 	public static Sprite enemy_1_random_dead3 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy1_dead_3, 16, 16);
 	public static Sprite enemy_1_random_dead4 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy1_dead_4, 16, 16);
 	//ONEAL enemy_2_random_speed
-	public static Sprite enemy_1_random_speed_left1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_left_1, 16, 16);
-	public static Sprite enemy_1_random_speed_left2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_left_2, 16, 16);
-	public static Sprite enemy_1_random_speed_right1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_right_1, 16, 16);
-	public static Sprite enemy_1_random_speed_right2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_right_2, 16, 16);
-	public static Sprite enemy_1_random_speed_up1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_up_1, 16, 16);
-	public static Sprite enemy_1_random_speed_up2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_up_2, 16, 16);
-	public static Sprite enemy_1_random_speed_down1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_down_1, 16, 16);
-	public static Sprite enemy_1_random_speed_down2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_down_2, 16, 16);
+	public static Sprite enemy_2_random_speed_left1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_left_1, 16, 16);
+	public static Sprite enemy_2_random_speed_left2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_left_2, 16, 16);
+	public static Sprite enemy_2_random_speed_right1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_right_1, 16, 16);
+	public static Sprite enemy_2_random_speed_right2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_right_2, 16, 16);
+	public static Sprite enemy_2_random_speed_up1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_up_1, 16, 16);
+	public static Sprite enemy_2_random_speed_up2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_up_2, 16, 16);
+	public static Sprite enemy_2_random_speed_down1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_down_1, 16, 16);
+	public static Sprite enemy_2_random_speed_down2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_down_2, 16, 16);
 
 	public static Sprite enemy_1_random_speed_dead1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_dead_1, 16, 16);
 	public static Sprite enemy_1_random_speed_dead2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy2_dead_2, 16, 16);
@@ -120,6 +120,7 @@ public class Sprite {
 	public static Sprite enemy_5_left2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_left_2, 16, 16);
 	public static Sprite enemy_5_right1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_right_1, 16, 16);
 	public static Sprite enemy_5_right2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_right_2, 16, 16);
+	public static Sprite enemy_5_dead = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_dead, 16, 16);
 
 
 	//ALL
