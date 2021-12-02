@@ -17,7 +17,7 @@ import java.util.List;
 public class Enemy_5 extends Enemy {
     public Enemy_5(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        moveSpeed = 8;
+        moveSpeed = 2;
     }
 
     @Override
