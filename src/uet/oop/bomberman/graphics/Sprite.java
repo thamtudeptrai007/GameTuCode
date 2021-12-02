@@ -116,11 +116,26 @@ public class Sprite {
 	public static Sprite enemy_4_dead = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy3_down_1, 16, 16);
 
 	//enemy_5
-	public static Sprite enemy_5_left1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_left_1, 16, 16);
-	public static Sprite enemy_5_left2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_left_2, 16, 16);
-	public static Sprite enemy_5_right1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_right_1, 16, 16);
-	public static Sprite enemy_5_right2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_right_2, 16, 16);
+	public static Sprite enemy_5_left1 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy5_left_1, 16, 16);
+	public static Sprite enemy_5_left2 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy5_left_2, 16, 16);
+	public static Sprite enemy_5_right1 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy5_right_1, 16, 16);
+	public static Sprite enemy_5_right2 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy5_right_2, 16, 16);
+	public static Sprite enemy_5_up1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_up_1, 16, 16);
+	public static Sprite enemy_5_up2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_up_2, 16, 16);
+	public static Sprite enemy_5_down1 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_down_1, 16, 16);
+	public static Sprite enemy_5_down2 = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_down_1, 16, 16);
 	public static Sprite enemy_5_dead = new Sprite(32, 0, 0, SpriteSheet.tiles_enemy5_dead, 16, 16);
+
+	//enemy_6
+	public static Sprite enemy_6_left1 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_left_1, 16, 16);
+	public static Sprite enemy_6_left2 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_left_2, 16, 16);
+	public static Sprite enemy_6_right1 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_right_1, 16, 16);
+	public static Sprite enemy_6_right2 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_right_2, 16, 16);
+	public static Sprite enemy_6_up1 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_up_1, 16, 16);
+	public static Sprite enemy_6_up2 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_up_2, 16, 16);
+	public static Sprite enemy_6_down1 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_down_1, 16, 16);
+	public static Sprite enemy_6_down2 = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_down_2, 16, 16);
+	public static Sprite enemy_6_dead = new Sprite(40, 0, 0, SpriteSheet.tiles_enemy6_up_1, 16, 16);
 
 
 	//ALL

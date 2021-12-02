@@ -17,7 +17,7 @@ public class SpriteSheet {
 	public BufferedImage image;
 
 	//load anh map
-	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites_32/grass_blue_1.png", 32);
+	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites_32/grass_snow.png", 32);
 	public static SpriteSheet tiles_wall = new SpriteSheet("/new_sprites_32/wall.png", 32);
 	public static SpriteSheet tiles_brick = new SpriteSheet("/new_sprites_32/brick.png", 32);
 
@@ -99,11 +99,27 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_enemy4_right_1 = new SpriteSheet("/new_sprites_32/enemy4_right_1.png", 32);
 	public static SpriteSheet tiles_enemy4_right_2 = new SpriteSheet("/new_sprites_32/enemy4_right_2.png", 32);
 
-	public static SpriteSheet tiles_enemy5_left_1 = new SpriteSheet("/new_sprites_32/kondoria_left2.png", 32);
-	public static SpriteSheet tiles_enemy5_left_2 = new SpriteSheet("/new_sprites_32/kondoria_left3.png", 32);
-	public static SpriteSheet tiles_enemy5_right_1 = new SpriteSheet("/new_sprites_32/kondoria_right3.png", 32);
-	public static SpriteSheet tiles_enemy5_right_2 = new SpriteSheet("/new_sprites_32/kondoria_right2.png", 32);
+	public static SpriteSheet tiles_enemy5_left_1 = new SpriteSheet("/new_sprites_32/enemy5_left_1_ghost.png", 40);
+	public static SpriteSheet tiles_enemy5_left_2 = new SpriteSheet("/new_sprites_32/enemy5_left_2_ghost.png", 40);
+	public static SpriteSheet tiles_enemy5_right_1 = new SpriteSheet("/new_sprites_32/enemy5_right_1_ghost.png", 40);
+	public static SpriteSheet tiles_enemy5_right_2 = new SpriteSheet("/new_sprites_32/enemy5_right_2_ghost.png", 40);
+	public static SpriteSheet tiles_enemy5_up_1 = new SpriteSheet("/new_sprites_32/enemy5_up_1_ghost.png", 32);
+	public static SpriteSheet tiles_enemy5_up_2 = new SpriteSheet("/new_sprites_32/enemy5_up_2_ghost.png", 32);
+	public static SpriteSheet tiles_enemy5_down_1 = new SpriteSheet("/new_sprites_32/enemy5_down_1_ghost.png", 32);
+	public static SpriteSheet tiles_enemy5_down_2 = new SpriteSheet("/new_sprites_32/enemy5_down_2_ghost.png", 32);
+
 	public static SpriteSheet tiles_enemy5_dead = new SpriteSheet("/new_sprites_32/kondoria_dead.png", 32);
+
+	public static SpriteSheet tiles_enemy6_left_1 = new SpriteSheet("/new_sprites_32/enemy6_left_1_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_left_2 = new SpriteSheet("/new_sprites_32/enemy6_left_2_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_right_1 = new SpriteSheet("/new_sprites_32/enemy6_right_1_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_right_2 = new SpriteSheet("/new_sprites_32/enemy6_right_2_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_up_1 = new SpriteSheet("/new_sprites_32/enemy6_up_1_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_up_2 = new SpriteSheet("/new_sprites_32/enemy6_up_2_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_down_1 = new SpriteSheet("/new_sprites_32/enemy6_down_1_ghost.png", 40);
+	public static SpriteSheet tiles_enemy6_down_2 = new SpriteSheet("/new_sprites_32/enemy6_down_2_ghost.png", 40);
+
+	public static SpriteSheet tiles_enemy6_dead = new SpriteSheet("/new_sprites_32/kondoria_dead.png", 32);
 
 
 

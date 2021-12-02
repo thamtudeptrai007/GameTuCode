@@ -71,15 +71,21 @@ public class Animation {
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
     // enemy_5
-    public static Animation enemy_5_left = new Animation(Sprite.enemy_5_left1,
-            Sprite.enemy_5_left2);
-    public static Animation enemy_5_right = new Animation(Sprite.enemy_5_right1,
-            Sprite.enemy_5_right2);
-    public static Animation enemy_5_up = new Animation(Sprite.enemy_5_left1,
-            Sprite.enemy_5_left2);
-    public static Animation enemy_5_down = new Animation(Sprite.enemy_5_right1,
-            Sprite.enemy_5_right2);
-    public static Animation enemy_5_dead = new Animation(Sprite.enemy_5_dead,
+    public static Animation enemy_5_left = new Animation(Sprite.enemy_5_left1, Sprite.enemy_5_left2);
+    public static Animation enemy_5_right = new Animation(Sprite.enemy_5_right1, Sprite.enemy_5_right2);
+    public static Animation enemy_5_up = new Animation(Sprite.enemy_5_up1,
+            Sprite.enemy_5_up2);
+    public static Animation enemy_5_down = new Animation(Sprite.enemy_5_down1,
+            Sprite.enemy_5_down2);
+    public static Animation enemy_5_dead = new Animation(Sprite.enemy_5_left1,
+            Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
+
+    // enemy_6
+    public static Animation enemy_6_left = new Animation(Sprite.enemy_6_left1, Sprite.enemy_6_left2);
+    public static Animation enemy_6_right = new Animation(Sprite.enemy_6_right1, Sprite.enemy_6_right2);
+    public static Animation enemy_6_up = new Animation(Sprite.enemy_6_up1,Sprite.enemy_6_up2);
+    public static Animation enemy_6_down = new Animation(Sprite.enemy_6_down1, Sprite.enemy_6_down2);
+    public static Animation enemy_6_dead = new Animation(Sprite.enemy_6_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
 
