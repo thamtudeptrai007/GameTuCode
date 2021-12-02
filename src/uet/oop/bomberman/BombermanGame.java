@@ -66,15 +66,5 @@ public class BombermanGame extends Application {
         timer.start();
 
         map.createMap(numberLives);
-
-        //keyBoard(scene, map.getBomber());
-    }
-
-    public void keyBoard(Scene scene, Bomber bomber) {
-        scene.setOnKeyPressed(bomber::press);
-        /*scene.setOnKeyPressed(keyEvent -> {
-            bomber.press(keyEvent);
-        });*/
-        scene.setOnKeyPressed(bomber::release);
     }
 }
