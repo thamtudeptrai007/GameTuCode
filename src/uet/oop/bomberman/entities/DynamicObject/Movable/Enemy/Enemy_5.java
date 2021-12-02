@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities.DynamicObject.Movable.Enemy;
 
 import javafx.scene.image.Image;
 import javafx.util.Pair;
+import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.Map.GameMap;
 import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.entities.DynamicObject.Bomb.Bomb;
@@ -23,14 +24,14 @@ public class Enemy_5 extends Enemy {
     public void enemyUpdate(List<Entity> entities, long now) {
         moving = true;
         if (direction == Direction.RIGHT) {
-            if (getXUnit() == GameMap.getWidth() - 1) {
+            if (getXUnit() == BombermanGame.WIDTH - 2 || getXUnit() == BombermanGame.WIDTH - 1) {
                 direction = Direction.LEFT;
                 moveSpeedX = -moveSpeed;
             } else {
                 moveSpeedX = moveSpeed;
             }
         } else if (direction == Direction.LEFT) {
-            if (x == 0) {
+            if (getXUnit() == 0) {
                 direction = Direction.RIGHT;
                 moveSpeedX = moveSpeed;
             } else {
