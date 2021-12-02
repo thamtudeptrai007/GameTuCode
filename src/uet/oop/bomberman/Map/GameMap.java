@@ -9,6 +9,7 @@ import uet.oop.bomberman.entities.DynamicObject.Brick;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.*;
 import uet.oop.bomberman.entities.StaticObject.Grass;
 import uet.oop.bomberman.entities.StaticObject.Items.*;
+import uet.oop.bomberman.entities.StaticObject.StaticObject;
 import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.entities.*;
 import uet.oop.bomberman.graphics.Animation;
@@ -21,12 +22,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameMap {
+
     private Scene scene;
     private GraphicsContext gc;
     private Canvas canvas;
     private int level;
     private int height;
-    private int width;
+    private static int width;
     private char[][] map;
     private int next = 1;
     private List<Entity> entities = new ArrayList<Entity>();
@@ -198,6 +200,18 @@ public class GameMap {
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         //stillObjects.forEach(g -> g.render(gc));
-        entities.forEach(g -> g.render(gc));
+        for (Entity entity : entities) {
+            if (entity instanceof StaticObject || entity instanceof Brick)
+                entity.render(gc);
+        }
+
+        for (Entity entity : entities) {
+            if (!(entity instanceof StaticObject || entity instanceof Brick))
+                entity.render(gc);
+        }
+    }
+
+    public static int getWidth() {
+        return width;
     }
 }

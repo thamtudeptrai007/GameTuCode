@@ -5,6 +5,7 @@ import uet.oop.bomberman.entities.Entity;
 
 import java.util.List;
 
+/// Boss thong minh + tranh bomb
 public class Enemy_4 extends Enemy {
     public Enemy_4(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
