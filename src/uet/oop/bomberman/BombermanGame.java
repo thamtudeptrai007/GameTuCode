@@ -15,7 +15,7 @@ import uet.oop.bomberman.graphics.Sprite;
 import java.io.IOException;
 
 public class BombermanGame extends Application {
-    
+
     public static final int WIDTH = 31;
     public static final int HEIGHT = 13;
     public static final int FPS = 24;
@@ -35,7 +35,7 @@ public class BombermanGame extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // Tao Canvas
-        canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
+        canvas = new Canvas(Sprite.DEFAULT_SIZE * WIDTH, Sprite.DEFAULT_SIZE * HEIGHT);
         gc = canvas.getGraphicsContext2D();
 
         // Tao root container

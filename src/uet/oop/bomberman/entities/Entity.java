@@ -22,8 +22,8 @@ public abstract class Entity {
 
     //Khởi tạo đối tượng, chuyển từ tọa độ đơn vị sang tọa độ trong canvas
     public Entity( int xUnit, int yUnit, Image img) {
-        this.x = xUnit * Sprite.SCALED_SIZE;
-        this.y = yUnit * Sprite.SCALED_SIZE;
+        this.x = xUnit * Sprite.DEFAULT_SIZE;
+        this.y = yUnit * Sprite.DEFAULT_SIZE;
         this.img = img;
     }
 
@@ -39,24 +39,24 @@ public abstract class Entity {
 
     public boolean checkCollision(Entity other) {
         int curLeft = this.x;
-        int curRight = curLeft + Sprite.SCALED_SIZE - 1;
+        int curRight = curLeft + Sprite.DEFAULT_SIZE - 1;
         int curTop = this.y;
-        int curBottom = curTop + Sprite.SCALED_SIZE - 1;
+        int curBottom = curTop + Sprite.DEFAULT_SIZE - 1;
         int otherLeft = other.getX();
-        int otherRight = otherLeft + Sprite.SCALED_SIZE - 1;
+        int otherRight = otherLeft + Sprite.DEFAULT_SIZE - 1;
         int otherTop = other.getY();
-        int otherBottom = otherTop + Sprite.SCALED_SIZE - 1;
+        int otherBottom = otherTop + Sprite.DEFAULT_SIZE - 1;
 
         return !(curRight < otherLeft || curLeft > otherRight || curBottom < otherTop || curTop > otherBottom);
     }
 
     public static boolean checkCollision(int curLeft, int curTop, Entity other) {
-        int curRight = curLeft + Sprite.SCALED_SIZE - 1;
-        int curBottom = curTop + Sprite.SCALED_SIZE - 1;
+        int curRight = curLeft + Sprite.DEFAULT_SIZE - 1;
+        int curBottom = curTop + Sprite.DEFAULT_SIZE - 1;
         int otherLeft = other.getX();
-        int otherRight = otherLeft + Sprite.SCALED_SIZE - 1;
+        int otherRight = otherLeft + Sprite.DEFAULT_SIZE - 1;
         int otherTop = other.getY();
-        int otherBottom = otherTop + Sprite.SCALED_SIZE - 1;
+        int otherBottom = otherTop + Sprite.DEFAULT_SIZE - 1;
 
         return !(curRight < otherLeft || curLeft > otherRight || curBottom < otherTop || curTop > otherBottom);
     }
@@ -74,7 +74,7 @@ public abstract class Entity {
         return y;
     }
 
-    public int getXUnit() { return x / Sprite.SCALED_SIZE; }
+    public int getXUnit() { return x / Sprite.DEFAULT_SIZE; }
 
-    public int getYUnit() { return y / Sprite.SCALED_SIZE; }
+    public int getYUnit() { return y / Sprite.DEFAULT_SIZE; }
 }

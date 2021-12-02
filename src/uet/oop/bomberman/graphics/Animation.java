@@ -31,8 +31,8 @@ public class Animation {
             Sprite.enemy_1_random_up2);
     public static Animation enemy_1_random_down = new Animation(Sprite.enemy_1_random_down1,
             Sprite.enemy_1_random_down2);
-    public static Animation enemy_1_random_dead = new Animation(Sprite.enemy_1_random_dead,
-            Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
+    public static Animation enemy_1_random_dead = new Animation(Sprite.enemy_1_random_dead1,
+            Sprite.enemy_1_random_dead2, Sprite.enemy_1_random_dead3, Sprite.enemy_1_random_dead4);
 
     // enemy_1_random_speed
     public static Animation enemy_1_random_speed_left = new Animation(Sprite.enemy_1_random_speed_left1,
@@ -43,8 +43,8 @@ public class Animation {
             Sprite.enemy_1_random_speed_up2);
     public static Animation enemy_1_random_speed_down = new Animation(Sprite.enemy_1_random_speed_down1,
             Sprite.enemy_1_random_speed_down2);
-    public static Animation enemy_1_random_speed_dead = new Animation(Sprite.enemy_1_random_speed_dead,
-            Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
+    public static Animation enemy_1_random_speed_dead =new Animation(Sprite.enemy_1_random_dead1,
+            Sprite.enemy_1_random_dead2, Sprite.enemy_1_random_dead3);
 
     // enemy_3
     public static Animation enemy_3_left = new Animation(Sprite.enemy_3_left1,
@@ -55,8 +55,8 @@ public class Animation {
             Sprite.enemy_3_up2);
     public static Animation enemy_3_down = new Animation(Sprite.enemy_3_down1,
             Sprite.enemy_3_down2);
-    public static Animation enemy_3_dead = new Animation(Sprite.enemy_3_dead,
-            Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
+    public static Animation enemy_3_dead = new Animation(Sprite.enemy_3_dead1,
+            Sprite.enemy_3_dead2, Sprite.enemy_3_dead3, Sprite.enemy_3_dead4);
 
     // enemy_4
     public static Animation enemy_4_left = new Animation(Sprite.enemy_4_left1,
@@ -70,21 +70,18 @@ public class Animation {
     public static Animation enemy_4_dead = new Animation(Sprite.enemy_4_dead,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
-    // Minvo
-    public static Animation minvo_left = new Animation(Sprite.minvo_left1,
-            Sprite.minvo_left2, Sprite.minvo_left3);
-    public static Animation minvo_right = new Animation(Sprite.minvo_right1,
-            Sprite.minvo_right2, Sprite.minvo_right3);
-    public static Animation minvo_dead = new Animation(Sprite.minvo_dead,
+    // enemy_5
+    public static Animation enemy_5_left = new Animation(Sprite.enemy_5_left1,
+            Sprite.enemy_5_left2);
+    public static Animation enemy_5_right = new Animation(Sprite.enemy_5_right1,
+            Sprite.enemy_5_right2);
+    public static Animation enemy_5_up = new Animation(Sprite.enemy_5_left1,
+            Sprite.enemy_5_left2);
+    public static Animation enemy_5_down = new Animation(Sprite.enemy_5_right1,
+            Sprite.enemy_5_right2);
+    public static Animation enemy_5_dead = new Animation(Sprite.enemy_5_left1,
             Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
-    // Kondoria
-    public static Animation kondoria_left = new Animation(Sprite.kondoria_left1,
-            Sprite.kondoria_left2, Sprite.kondoria_left3);
-    public static Animation kondoria_right = new Animation(Sprite.kondoria_right1,
-            Sprite.kondoria_right2, Sprite.kondoria_right3);
-    public static Animation kondoria_dead = new Animation(Sprite.kondoria_dead,
-            Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3);
 
     /*
      * Bomb

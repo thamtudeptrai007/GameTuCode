@@ -68,23 +68,23 @@ public class Bomber extends Movable {
         for (Entity entity : entities) {
             if (entity instanceof Brick || entity instanceof Wall) {
                 int otherLeft = entity.getX();
-                int otherRight = otherLeft + Sprite.SCALED_SIZE;
+                int otherRight = otherLeft + Sprite.DEFAULT_SIZE;
                 int otherTop = entity.getY();
-                int otherBottom = otherTop + Sprite.SCALED_SIZE;
-                int curLeft = x, curRight = curLeft + Sprite.SCALED_SIZE;
-                int curTop = y, curBottom = curTop + Sprite.SCALED_SIZE;
+                int otherBottom = otherTop + Sprite.DEFAULT_SIZE;
+                int curLeft = x, curRight = curLeft + Sprite.DEFAULT_SIZE;
+                int curTop = y, curBottom = curTop + Sprite.DEFAULT_SIZE;
                 if (checkCollision(newX, newY, entity)) {
                     switch (direction) {
                         case LEFT:
                         case RIGHT:
                             if (otherTop - curTop >= safeDistance) {
                                 if (getAt(entity.getXUnit(), entity.getYUnit() - 1, entities) == null) {
-                                    return new Pair<>(newX, otherTop - Sprite.SCALED_SIZE);
+                                    return new Pair<>(newX, otherTop - Sprite.DEFAULT_SIZE);
                                 }
                             }
                             if (curBottom - otherBottom >= safeDistance) {
                                 if (getAt(entity.getXUnit(), entity.getYUnit() + 1, entities) == null) {
-                                    return new Pair<>(newX, otherTop + Sprite.SCALED_SIZE);
+                                    return new Pair<>(newX, otherTop + Sprite.DEFAULT_SIZE);
                                 }
                             }
                             break;
@@ -92,12 +92,12 @@ public class Bomber extends Movable {
                         case DOWN:
                             if (otherLeft - curLeft >= safeDistance) {
                                 if (getAt(entity.getXUnit() - 1, entity.getYUnit(), entities) == null) {
-                                    return new Pair<>(otherLeft - Sprite.SCALED_SIZE, newY);
+                                    return new Pair<>(otherLeft - Sprite.DEFAULT_SIZE, newY);
                                 }
                             }
                             if (curRight - otherRight >= safeDistance) {
                                 if (getAt(entity.getXUnit() + 1, entity.getYUnit(), entities) == null) {
-                                    return new Pair<>(otherLeft + Sprite.SCALED_SIZE, newY);
+                                    return new Pair<>(otherLeft + Sprite.DEFAULT_SIZE, newY);
                                 }
                             }
                             break;
@@ -114,22 +114,22 @@ public class Bomber extends Movable {
 
     public void addNewBomb(List<Entity> entities, long now) {
         newBomb = false;
-        int Left = this.getXUnit() * Sprite.SCALED_SIZE;
-        int Right = Left + Sprite.SCALED_SIZE;
-        int Top = this.getYUnit() * Sprite.SCALED_SIZE;
-        int Bot = Top + Sprite.SCALED_SIZE;
-        int posX = x / Sprite.SCALED_SIZE;
-        int posY = y / Sprite.SCALED_SIZE;
+        int Left = this.getXUnit() * Sprite.DEFAULT_SIZE;
+        int Right = Left + Sprite.DEFAULT_SIZE;
+        int Top = this.getYUnit() * Sprite.DEFAULT_SIZE;
+        int Bot = Top + Sprite.DEFAULT_SIZE;
+        int posX = x / Sprite.DEFAULT_SIZE;
+        int posY = y / Sprite.DEFAULT_SIZE;
         switch (direction) {
             case LEFT:
             case RIGHT:
-                if (Right - x < Sprite.SCALED_SIZE / 2 + 4) {
+                if (Right - x < Sprite.DEFAULT_SIZE / 2 + 4) {
                     posX++;
                 }
                 break;
             case UP:
             case DOWN:
-                if (Bot - y < Sprite.SCALED_SIZE / 2 + 4) {
+                if (Bot - y < Sprite.DEFAULT_SIZE / 2 + 4) {
                     posY++;
                 }
         }

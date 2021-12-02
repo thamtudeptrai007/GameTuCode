@@ -22,7 +22,7 @@ public class Enemy_2_random_speed extends Enemy {
         moving = true;
 
         int randomDirection;
-        if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
+        if (x % Sprite.DEFAULT_SIZE == 0 && y % Sprite.DEFAULT_SIZE == 0) {
             List<Direction> dirCanMove = canMove(entities);
             if (dirCanMove.size() == 0) {
                 randomDirection = direction.getValue();
