@@ -1,6 +1,7 @@
 package uet.oop.bomberman.entities.DynamicObject.Movable;
 
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Pair;
 import uet.oop.bomberman.BombermanGame;
@@ -192,47 +193,85 @@ public class Bomber extends Movable {
         numberBombs++;
     }
 
-    public void press(KeyEvent event) {
+    public void press(List<KeyEvent> keyEvents) {
         moving = true;
-        switch (event.getCode()) {
-            case LEFT:
+        for (KeyEvent keyEvent : keyEvents) {
+            //System.out.println(keyEvent.getCode().toString());
+            if (keyEvent.getCode() == KeyCode.LEFT) {
                 direction = Direction.LEFT;
                 moveSpeedX = -moveSpeed;
-                break;
-            case RIGHT:
-                direction = Direction.RIGHT;
-                moveSpeedX = moveSpeed;
-                break;
-            case UP:
+            }
+
+            if (keyEvent.getCode() == KeyCode.UP) {
                 direction = Direction.UP;
                 moveSpeedY = -moveSpeed;
-                break;
-            case DOWN:
+            }
+            if (keyEvent.getCode() == KeyCode.DOWN) {
                 direction = Direction.DOWN;
                 moveSpeedY = moveSpeed;
-                break;
-            case SPACE:
+            }
+            if (keyEvent.getCode() == KeyCode.RIGHT) {
+                direction = Direction.RIGHT;
+                moveSpeedX = moveSpeed;
+            }
+            if (keyEvent.getCode() == KeyCode.SPACE) {
                 newBomb = true;
-            default:
-                moving = false;
+            }
         }
     }
 
-    public void release(KeyEvent keyEvent) {
-        switch (keyEvent.getCode()) {
-            case LEFT:
-            case RIGHT:
-                moving = false;
+
+    public void release(List<KeyEvent> keyEvents, List<KeyEvent> keyEventsRelease) {
+        boolean check = true;
+        boolean checkLeft = true;
+        boolean checkRight = true;
+        boolean checkUp = true;
+        boolean checkDown = true;
+        for (KeyEvent keyEvent : keyEvents) {
+            if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT
+                    || keyEvent.getCode() == KeyCode.DOWN || keyEvent.getCode() == KeyCode.UP) {
+                check = false;
+            }
+            if (keyEvent.getCode() == KeyCode.LEFT) {
+                checkRight = false;
+            }
+            if (keyEvent.getCode() == KeyCode.RIGHT) {
+                checkLeft = false;
+            }
+            if (keyEvent.getCode() == KeyCode.UP) {
+                checkDown = false;
+            }
+            if (keyEvent.getCode() == KeyCode.DOWN) {
+                checkUp = false;
+            }
+        }
+        for (KeyEvent keyEvent : keyEventsRelease) {
+            //System.out.println(keyEvent.getCode().toString());
+            if ((keyEvent.getCode() == KeyCode.LEFT && checkLeft)||(keyEvent.getCode() == KeyCode.RIGHT && checkRight)) {
+                if (!checkDown) {
+                    direction = Direction.UP;
+                }
+                if (!checkUp) {
+                    direction = Direction.DOWN;
+                }
                 moveSpeedX = 0;
-                break;
-            case UP:
-            case DOWN:
-                moving = false;
+            }
+            if ((keyEvent.getCode() == KeyCode.DOWN && checkDown) || (keyEvent.getCode() == KeyCode.UP && checkUp)) {
+                if (!checkLeft) {
+                    direction = Direction.RIGHT;
+                }
+                if(!checkRight) {
+                    direction = Direction.LEFT;
+                }
                 moveSpeedY = 0;
-                break;
-            case SPACE:
+            }
+            if (check) {
+                moving = false;
+            }
+            if (keyEvent.getCode() == KeyCode.SPACE) {
                 newBomb = false;
-                break;
+            }
+
         }
     }
 }

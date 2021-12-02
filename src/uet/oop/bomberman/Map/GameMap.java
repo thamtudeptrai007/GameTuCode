@@ -1,8 +1,10 @@
 package uet.oop.bomberman.Map;
 
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
@@ -33,6 +35,8 @@ public class GameMap {
     private int next = 1;
     private List<Entity> entities = new ArrayList<Entity>();
     //private List<Entity> stillObjects = new ArrayList<Entity>();
+    private List<KeyEvent> keyEventsPress = new ArrayList<>();
+    private List<KeyEvent> keyEventsRelease = new ArrayList<>();
 
     public GameMap(Scene scene, GraphicsContext gc, Canvas canvas, int level) {
         this.scene = scene;
@@ -108,9 +112,8 @@ public class GameMap {
                         bomber.setMoveAnimation(Direction.DOWN, Animation.player_down.getFxImages());
                         bomber.setDeadAnimation(Animation.player_dead.getFxImages());
                         bomber.setNumberLives(numberLives);
+                        keyboard(scene, bomber);
                         object = bomber;
-                        scene.setOnKeyPressed(bomber::press);
-                        scene.setOnKeyReleased(bomber::release);
                         break;
                     case '1':
                         Enemy_1_random balloom = new Enemy_1_random(x, y, Animation.enemy_1_random_left.getFxImages());
@@ -213,5 +216,26 @@ public class GameMap {
 
     public static int getWidth() {
         return width;
+    }
+
+    public void keyboard(Scene scene, Bomber bomber) {
+        EventHandler<KeyEvent> keyPressedEventHandler = new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                keyEventsPress.add(event);
+                bomber.press(keyEventsPress);
+            }
+        };
+        EventHandler<KeyEvent> keyReleasedEventHandler = new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                keyEventsPress.removeIf(e -> e.getCode().equals(event.getCode()));
+                keyEventsRelease.add(event);
+                bomber.release(keyEventsPress, keyEventsRelease);
+                keyEventsRelease.clear();
+            }
+        };
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, keyPressedEventHandler);
+        scene.addEventFilter(KeyEvent.KEY_RELEASED, keyReleasedEventHandler);
     }
 }
