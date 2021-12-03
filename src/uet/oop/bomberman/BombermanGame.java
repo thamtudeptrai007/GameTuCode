@@ -51,7 +51,7 @@ public class BombermanGame extends Application {
 
         map = new GameMap(scene, gc, canvas,1);
 
-        Sound.playBackground();
+        //Sound.playBackground();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -60,6 +60,7 @@ public class BombermanGame extends Application {
                     map.render();
                     map.update(now);
                     lastTime = now;
+                    //System.out.println();
                 }
             }
         };

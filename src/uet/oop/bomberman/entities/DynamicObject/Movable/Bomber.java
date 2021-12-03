@@ -22,7 +22,7 @@ public class Bomber extends Movable {
     private static final int safeDistance = 10;
     private boolean newBomb = false;
     private int flameSize = 1;
-    private int numberBombs = 1;
+    private int numberBombs = 10;
     private int numberLives = BombermanGame.numberLives;
     private List<Bomb> bombList = new ArrayList<Bomb>();
 
