@@ -23,6 +23,7 @@ public class Portal extends StaticObject {
         for (Entity entity : entities) {
             if (entity instanceof Bomber && x == entity.getX() && y == entity.getY()) {
                 System.out.println("Complete!");
+                System.out.println("Your Score: " + ((Bomber) entity).getScore());
                 System.exit(0);
             }
         }

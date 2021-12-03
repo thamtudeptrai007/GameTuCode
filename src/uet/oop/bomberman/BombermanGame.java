@@ -51,6 +51,7 @@ public class BombermanGame extends Application {
 
         map = new GameMap(scene, gc, canvas,1);
 
+        map.createMap(numberLives, 0);
         //Sound.playBackground();
 
         AnimationTimer timer = new AnimationTimer() {
@@ -66,6 +67,6 @@ public class BombermanGame extends Application {
         };
         timer.start();
 
-        map.createMap(numberLives);
+
     }
 }
