@@ -45,7 +45,7 @@ public class GameMap {
         this.level = level;
     }
 
-    public void createMap(int numberLives) throws IOException {
+    public void createMap(int numberLives, int score) throws IOException {
         entities.clear();
         FileInputStream fis = new FileInputStream("res/levels/Level" + level + ".txt");
         Scanner scanner = new Scanner(fis);
@@ -112,6 +112,7 @@ public class GameMap {
                         bomber.setMoveAnimation(Direction.DOWN, Animation.player_down.getFxImages());
                         bomber.setDeadAnimation(Animation.player_dead.getFxImages());
                         bomber.setNumberLives(numberLives);
+                        bomber.setScore(score);
                         keyboard(scene, bomber);
                         object = bomber;
                         break;
@@ -180,26 +181,30 @@ public class GameMap {
     }
     public void update(long now) {
         int curLive = 0;
+
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i) instanceof Bomber) {
                 Bomber bomber = (Bomber) entities.get(i);
                 curLive = bomber.getNumberLives();
                 if (curLive == 0) {
-                    System.out.println("You Lose");
+                    System.out.println("You Lose !!!");
+                    System.out.println("Your score: " + bomber.getScore());
                     System.exit(0);
                 }
             }
+
             entities.get(i).update(entities, now);
 
-            for (int j = 0; j < entities.size(); j++) {
-                if (entities.get(j) instanceof Bomber) {
-                    int lastLive = ((Bomber) entities.get(j)).getNumberLives();
+            for (Entity entity : entities) {
+                if (entity instanceof Bomber) {
+                    int lastLive = ((Bomber) entity).getNumberLives();
+                    int lastScore = ((Bomber) entity).getScore();
                     if (curLive - lastLive == 1) {
                         try {
                             next = next + height + 1;
                             next = (next > 70 ? 1 : next);
-                            createMap(lastLive);
-                        } catch (Exception e) {
+                            createMap(lastLive, lastScore);
+                        } catch (Exception ignored) {
 
                         }
                         return;

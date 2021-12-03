@@ -24,6 +24,7 @@ public class Bomber extends Movable {
     private int flameSize = 1;
     private int numberBombs = 10;
     private int numberLives = BombermanGame.numberLives;
+    private int score = 0;
     private List<Bomb> bombList = new ArrayList<Bomb>();
 
     public Bomber(int x, int y, Image... img) {
@@ -191,6 +192,18 @@ public class Bomber extends Movable {
 
     public void increaseNumberBombs() {
         numberBombs++;
+    }
+
+    public void increaseScore(int value) {
+        score += value;
+    }
+
+    public void setScore(int value) {
+        score = value;
+    }
+
+    public int getScore() {
+        return score;
     }
 
     public void press(List<KeyEvent> keyEvents) {

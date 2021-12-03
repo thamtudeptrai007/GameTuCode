@@ -6,6 +6,7 @@ import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.Support.Sound;
 import uet.oop.bomberman.entities.DynamicObject.Bomb.Bomb;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Movable;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.StaticObject.Wall;
@@ -17,6 +18,7 @@ public abstract class Enemy extends Movable  {
 
     protected final int[] listNewXUnit = {-1, 1, 0, 0};
     protected final int[] listNewYUnit = {0, 0, -1, 1};
+    protected int score = 100;
 
     public Enemy(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
@@ -44,6 +46,12 @@ public abstract class Enemy extends Movable  {
 
             if (currentImg == deadAnimation.size() - 1) {
                 entities.remove(this);
+                for (Entity entity : entities) {
+                    if (entity instanceof Bomber) {
+                        ((Bomber) entity).increaseScore(score);
+                        break;
+                    }
+                }
             }
             return;
 

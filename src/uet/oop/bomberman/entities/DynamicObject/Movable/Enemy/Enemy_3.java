@@ -24,6 +24,7 @@ public class Enemy_3 extends Enemy {
     public Enemy_3(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
         moveSpeed = 2;
+        score = 1000;
     }
 
     @Override
@@ -120,7 +121,7 @@ public class Enemy_3 extends Enemy {
     public Entity getAt(int XUnit, int YUnit, List<Entity> entities) {
         for (Entity entity : entities) {
             if (entity.getXUnit() == XUnit && entity.getYUnit() == YUnit) {
-                if (entity instanceof Brick || entity instanceof Wall || entity instanceof Bomb)
+                if (entity instanceof Brick || entity instanceof Wall)
                     return entity;
             }
         }
