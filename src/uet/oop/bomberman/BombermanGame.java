@@ -66,7 +66,5 @@ public class BombermanGame extends Application {
             }
         };
         timer.start();
-
-
     }
 }
