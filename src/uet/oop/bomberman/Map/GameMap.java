@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
@@ -282,5 +283,19 @@ public class GameMap {
             }
         }
         return false;
+    }
+    public int getLevel() {
+        return level;
+    }
+    public int getTotalTime() {
+        return totalTime;
+    }
+    public Bomber getBomber() {
+        for(Entity entity : entities) {
+            if (entity instanceof Bomber) {
+                return (Bomber) entity;
+            }
+        }
+        return null;
     }
 }

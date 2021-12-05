@@ -60,7 +60,6 @@ public class BombermanGame extends Application {
         HBox hBox = new HBox();
         hBox.setSpacing(40) ;
         hBox.getChildren().addAll(level, time, point, lives);
-
         VBox vBox = new VBox();
         vBox.getChildren().add(hBox);
         vBox.getChildren().add(canvas);
@@ -83,7 +82,12 @@ public class BombermanGame extends Application {
                     map.render();
                     map.update(now);
                     lastTime = now;
-                    //System.out.println(map.getPortal());
+                    Bomber bomber1 = map.getBomber();
+                    level.setText("Level: " + String.valueOf(map.getLevel()));
+                    time.setText("Time: " + String.valueOf(map.getTotalTime()));
+                    point.setText("Points: " + String.valueOf(bomber1.getScore()));
+                    lives.setText("Lives: " + String.valueOf(bomber1.getNumberLives()));
+
                 }
 
             }
