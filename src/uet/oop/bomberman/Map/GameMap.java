@@ -185,7 +185,7 @@ public class GameMap {
     public void update(long now) {
         int curLive = 0;
         if ((now - lastTime) / 1000000000 >= 1) {
-            System.out.println(totalTime);
+            //System.out.println(totalTime);
             totalTime--;
             lastTime = now;
 

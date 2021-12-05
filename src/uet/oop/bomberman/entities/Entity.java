@@ -56,7 +56,7 @@ public abstract class Entity {
         int otherTop = other.getY();
         int otherBottom = otherTop + Sprite.DEFAULT_SIZE - 1;
 
-        return !(curRight < otherLeft || curLeft > otherRight || curBottom < otherTop || curTop > otherBottom);
+        return !(curRight <= otherLeft || curLeft >= otherRight || curBottom <= otherTop || curTop >= otherBottom);
     }
 
     public static boolean checkCollision(int curLeft, int curTop, Entity other) {
@@ -67,7 +67,7 @@ public abstract class Entity {
         int otherTop = other.getY();
         int otherBottom = otherTop + Sprite.DEFAULT_SIZE - 1;
 
-        return !(curRight < otherLeft || curLeft > otherRight || curBottom < otherTop || curTop > otherBottom);
+        return !(curRight <= otherLeft || curLeft >= otherRight || curBottom <= otherTop || curTop >= otherBottom);
     }
 
     public void render(GraphicsContext gc) {

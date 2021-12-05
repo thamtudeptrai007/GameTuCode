@@ -17,6 +17,7 @@ import java.util.*;
 public class Enemy_3 extends Enemy {
 
     private final int distanceToRunAfter = 5;
+    private final int speedToRunAfter = 4;
     private final boolean[][] visited = new boolean[50][50];
     private final int[][] f = new int[50][50];
     private final Pair<Integer, Integer>[][] last = new Pair[50][50];
@@ -30,23 +31,25 @@ public class Enemy_3 extends Enemy {
 
     @Override
     public void enemyUpdate(List<Entity> entities, long now) {
-        moving = true;
         for (Entity entity : entities) {
             if (entity instanceof Bomber) {
                 BFS((Bomber) entity, entities);
-                //System.out.printf("%d %d\n", entity.getXUnit(), entity.getYUnit());
                 break;
             }
         }
         if (!ok) {
-            moveSpeed = 2;
             randomMoving(entities);
         }
     }
 
     public void trace(int curXUnit, int curYUnit) {
+        for (int i = 0; i < BombermanGame.WIDTH; i++) {
+            for (int j = 0; j < BombermanGame.HEIGHT; j++) {
+
+                state[i][j] = 0;
+            }
+        }
         while (true) {
-           // System.out.printf("%d %d\n", curXUnit, curYUnit);
             state[curXUnit][curYUnit] = 1;
             if (curXUnit == getXUnit() && curYUnit == getYUnit()) {
                 break;
@@ -58,32 +61,54 @@ public class Enemy_3 extends Enemy {
             curYUnit = lastYUnit;
         }
 
-        if (x % Sprite.DEFAULT_SIZE == 0 && y % Sprite.DEFAULT_SIZE == 0) {
+        if (x % Sprite.DEFAULT_SIZE == 0  && y % Sprite.DEFAULT_SIZE == 0) {
             for (int i = 0; i < 4; i++) {
                 int newXUnit = getXUnit() + listNewXUnit[i];
                 int newYUnit = getYUnit() + listNewYUnit[i];
                 if (state[newXUnit][newYUnit] == 1) {
-                    //System.out.printf("%d %d\n", newXUnit, newYUnit);
                     direction = Direction.getDirection(i);
                     state[newXUnit][newYUnit] = 0;
                 }
             }
         }
 
+        int realX = getXUnit() * Sprite.DEFAULT_SIZE;
+        int realY = getYUnit() * Sprite.DEFAULT_SIZE;
+
+        //System.out.println(x + " " + y);
+        //System.out.println(realX + " " + realY);
+
         switch (direction.getValue()) {
             case 0:
                 moveSpeedX = -moveSpeed;
+                int distanceLeft = x - realX;
+                if (0 < distanceLeft && distanceLeft < moveSpeed) {
+                    moveSpeedX = -distanceLeft;
+                }
                 break;
             case 1:
                 moveSpeedX = moveSpeed;
+                int distanceRight = realX + Sprite.DEFAULT_SIZE - x;
+                if (0 < distanceRight && distanceRight < moveSpeed) {
+                    moveSpeedX = distanceRight;
+                }
                 break;
             case 2:
                 moveSpeedY = -moveSpeed;
+                int distanceUp = y - realY;
+                if (0 < distanceUp && distanceUp < moveSpeed) {
+                    moveSpeedY = -distanceUp;
+                }
                 break;
             case 3:
                 moveSpeedY = moveSpeed;
+                int distanceDown = realY + Sprite.DEFAULT_SIZE - y;
+                if (0 < distanceDown && distanceDown < moveSpeed) {
+                    moveSpeedY = distanceDown;
+                }
                 break;
         }
+        System.out.println();
     }
 
     public void BFS(Bomber bomber, List<Entity> entities) {
@@ -96,7 +121,7 @@ public class Enemy_3 extends Enemy {
                 state[i][j] = 0;
             }
         }
-        //System.out.printf("%d %d\n",bomber.getXUnit(), bomber.getYUnit());
+
         q.offer(new Pair<>(getXUnit(), getYUnit()));
         visited[getXUnit()][getYUnit()] = true;
         while (!q.isEmpty()) {
@@ -105,9 +130,12 @@ public class Enemy_3 extends Enemy {
 
             if (curXUnit == bomber.getXUnit() && curYUnit == bomber.getYUnit()) {
                 if (f[curXUnit][curYUnit] <= distanceToRunAfter) {
+                    moving = true;
                     ok = true;
-                    moveSpeed = 4;
+                    moveSpeed = speedToRunAfter;
                     trace(curXUnit, curYUnit);
+                } else {
+                    ok = false;
                 }
                 return;
             }
@@ -132,7 +160,7 @@ public class Enemy_3 extends Enemy {
     public Entity getAt(int XUnit, int YUnit, List<Entity> entities) {
         for (Entity entity : entities) {
             if (entity.getXUnit() == XUnit && entity.getYUnit() == YUnit) {
-                if (entity instanceof Brick || entity instanceof Wall)
+                if (entity instanceof Brick || entity instanceof Wall || entity instanceof Bomb)
                     return entity;
             }
         }
