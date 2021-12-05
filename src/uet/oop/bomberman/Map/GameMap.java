@@ -175,7 +175,6 @@ public class GameMap {
                         object = enemy_6;
                         break;
                     default:
-
                 }
                 if (object != null) {
                     entities.add(object);
