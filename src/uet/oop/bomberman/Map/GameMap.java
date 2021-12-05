@@ -30,13 +30,17 @@ public class GameMap {
     private Canvas canvas;
     private int level;
     private int height;
-    private static int width;
+    private int width;
     private char[][] map;
     private int next = 1;
     private List<Entity> entities = new ArrayList<Entity>();
     //private List<Entity> stillObjects = new ArrayList<Entity>();
     private List<KeyEvent> keyEventsPress = new ArrayList<>();
     private List<KeyEvent> keyEventsRelease = new ArrayList<>();
+
+    private static final int defaultTotalTime = 180;
+    private long lastTime;
+    private int totalTime = defaultTotalTime;
 
     public GameMap(Scene scene, GraphicsContext gc, Canvas canvas, int level) {
         this.scene = scene;
@@ -45,7 +49,7 @@ public class GameMap {
         this.level = level;
     }
 
-    public void createMap(int numberLives, int score) throws IOException {
+    public void createMap(Bomber newBomber) throws IOException {
         entities.clear();
         FileInputStream fis = new FileInputStream("res/levels/Level" + level + ".txt");
         Scanner scanner = new Scanner(fis);
@@ -111,8 +115,7 @@ public class GameMap {
                         bomber.setMoveAnimation(Direction.UP, Animation.player_up.getFxImages());
                         bomber.setMoveAnimation(Direction.DOWN, Animation.player_down.getFxImages());
                         bomber.setDeadAnimation(Animation.player_dead.getFxImages());
-                        bomber.setNumberLives(numberLives);
-                        bomber.setScore(score);
+                        bomber.setAll(newBomber);
                         keyboard(scene, bomber);
                         object = bomber;
                         break;
@@ -181,7 +184,23 @@ public class GameMap {
     }
     public void update(long now) {
         int curLive = 0;
+        if ((now - lastTime) / 1000000000 >= 1) {
+            System.out.println(totalTime);
+            totalTime--;
+            lastTime = now;
 
+            if (totalTime < 0) {
+                System.out.println(getPortal());
+                if (!getPortal()) {
+                    System.out.println("Time over !!! You Lose");
+                    System.exit(0);
+                } else {
+                    totalTime = defaultTotalTime;
+                    level++;
+                    return;
+                }
+            }
+        }
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i) instanceof Bomber) {
                 Bomber bomber = (Bomber) entities.get(i);
@@ -195,21 +214,29 @@ public class GameMap {
 
             entities.get(i).update(entities, now);
 
+            Bomber newBomber = null;
             for (Entity entity : entities) {
                 if (entity instanceof Bomber) {
-                    int lastLive = ((Bomber) entity).getNumberLives();
-                    int lastScore = ((Bomber) entity).getScore();
-                    if (curLive - lastLive == 1) {
+                    newBomber = (Bomber) entity;
+
+                    if (curLive - newBomber.getNumberLives() == 1) {
                         try {
                             next = next + height + 1;
                             next = (next > 70 ? 1 : next);
-                            createMap(lastLive, lastScore);
-                        } catch (Exception ignored) {
-
-                        }
+                            createMap(newBomber);
+                        } catch (Exception ignored) {}
                         return;
                     }
                 }
+            }
+            if (getPortal()) {
+                try {
+                    totalTime = defaultTotalTime;
+                    next = 1;
+                    level++;
+                    createMap(newBomber);
+                } catch (Exception ignored) {}
+                return;
             }
         }
     }
@@ -226,10 +253,6 @@ public class GameMap {
             if (!(entity instanceof StaticObject || entity instanceof Brick))
                 entity.render(gc);
         }
-    }
-
-    public static int getWidth() {
-        return width;
     }
 
     public void keyboard(Scene scene, Bomber bomber) {
@@ -251,5 +274,14 @@ public class GameMap {
         };
         scene.addEventFilter(KeyEvent.KEY_PRESSED, keyPressedEventHandler);
         scene.addEventFilter(KeyEvent.KEY_RELEASED, keyReleasedEventHandler);
+    }
+
+    public boolean getPortal() {
+        for (Entity entity : entities) {
+            if (entity instanceof Portal) {
+                return ((Portal) entity).isPassLevel();
+            }
+        }
+        return false;
     }
 }

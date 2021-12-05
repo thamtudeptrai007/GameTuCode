@@ -9,6 +9,7 @@ import uet.oop.bomberman.entities.StaticObject.StaticObject;
 import java.util.List;
 
 public class Portal extends StaticObject {
+    private boolean passLevel = false;
     public Portal(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }
@@ -22,10 +23,15 @@ public class Portal extends StaticObject {
         }
         for (Entity entity : entities) {
             if (entity instanceof Bomber && x == entity.getX() && y == entity.getY()) {
+                passLevel = true;
                 System.out.println("Complete!");
                 System.out.println("Your Score: " + ((Bomber) entity).getScore());
-                System.exit(0);
+                //System.exit(0);
             }
         }
+    }
+
+    public boolean isPassLevel() {
+        return passLevel;
     }
 }

@@ -21,14 +21,29 @@ import java.util.List;
 public class Bomber extends Movable {
     private static final int safeDistance = 10;
     private boolean newBomb = false;
-    private int flameSize = 1;
-    private int numberBombs = 10;
-    private int numberLives = BombermanGame.numberLives;
-    private int score = 0;
+    private int flameSize;
+    private int numberBombs;
+    private int numberLives;
+    private int score;
     private List<Bomb> bombList = new ArrayList<Bomb>();
 
     public Bomber(int x, int y, Image... img) {
         super( x, y, img);
+    }
+
+    public Bomber(int flameSize, int numberBombs, int numberLives, int score) {
+        super();
+        this.flameSize = flameSize;
+        this.numberBombs = numberBombs;
+        this.numberLives = numberLives;
+        this.score = score;
+    }
+
+    public void setAll(Bomber other) {
+        this.flameSize = other.getFlameSize();
+        this.numberBombs = other.getNumberBombs();
+        this.numberLives = other.getNumberLives();
+        this.score = other.getScore();
     }
 
     @Override
@@ -178,7 +193,7 @@ public class Bomber extends Movable {
     }
 
     public void increaseLive() {
-        if (numberLives < BombermanGame.numberLives)
+        if (numberLives < BombermanGame.defaultNumberLives)
              numberLives++;
     }
 
@@ -204,6 +219,14 @@ public class Bomber extends Movable {
 
     public int getScore() {
         return score;
+    }
+
+    public int getFlameSize() {
+        return flameSize;
+    }
+
+    public int getNumberBombs() {
+        return numberBombs;
     }
 
     public void press(List<KeyEvent> keyEvents) {
@@ -232,7 +255,6 @@ public class Bomber extends Movable {
             }
         }
     }
-
 
     public void release(List<KeyEvent> keyEvents, List<KeyEvent> keyEventsRelease) {
         boolean check = true;
@@ -284,7 +306,6 @@ public class Bomber extends Movable {
             if (keyEvent.getCode() == KeyCode.SPACE) {
                 newBomb = false;
             }
-
         }
     }
 }

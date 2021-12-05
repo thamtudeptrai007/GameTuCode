@@ -26,6 +26,8 @@ public abstract class Movable extends DynamicObject {
     protected List<List<Image>> moveAnimation = new ArrayList<>();
     protected List<Image> deadAnimation = new ArrayList<Image>();
 
+    public Movable() {}
+
     public Movable(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
         for (int i = 0; i < numberOfDirection; i++) {
