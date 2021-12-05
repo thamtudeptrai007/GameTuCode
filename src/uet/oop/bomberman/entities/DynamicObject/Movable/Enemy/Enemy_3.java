@@ -16,14 +16,15 @@ import java.util.*;
 /// Boss thong minh
 public class Enemy_3 extends Enemy {
 
+    private final int distanceToRunAfter = 5;
     private final boolean[][] visited = new boolean[50][50];
     private final int[][] f = new int[50][50];
     private final Pair<Integer, Integer>[][] last = new Pair[50][50];
     private final int[][] state = new int[50][50];
+    private boolean ok = false;
 
     public Enemy_3(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        moveSpeed = 2;
         score = 1000;
     }
 
@@ -37,11 +38,15 @@ public class Enemy_3 extends Enemy {
                 break;
             }
         }
+        if (!ok) {
+            moveSpeed = 2;
+            randomMoving(entities);
+        }
     }
 
     public void trace(int curXUnit, int curYUnit) {
         while (true) {
-            //System.out.printf("%d %d\n", curXUnit, curYUnit);
+           // System.out.printf("%d %d\n", curXUnit, curYUnit);
             state[curXUnit][curYUnit] = 1;
             if (curXUnit == getXUnit() && curYUnit == getYUnit()) {
                 break;
@@ -52,6 +57,7 @@ public class Enemy_3 extends Enemy {
             curXUnit = lastXUnit;
             curYUnit = lastYUnit;
         }
+
         if (x % Sprite.DEFAULT_SIZE == 0 && y % Sprite.DEFAULT_SIZE == 0) {
             for (int i = 0; i < 4; i++) {
                 int newXUnit = getXUnit() + listNewXUnit[i];
@@ -98,11 +104,16 @@ public class Enemy_3 extends Enemy {
             int curYUnit = q.element().getValue();
 
             if (curXUnit == bomber.getXUnit() && curYUnit == bomber.getYUnit()) {
-                trace(curXUnit, curYUnit);
+                if (f[curXUnit][curYUnit] <= distanceToRunAfter) {
+                    ok = true;
+                    moveSpeed = 4;
+                    trace(curXUnit, curYUnit);
+                }
                 return;
             }
 
             q.remove();
+
             for (int i = 0; i < 4; i++) {
                 int newXUnit = curXUnit + listNewXUnit[i];
                 int newYUnit = curYUnit + listNewYUnit[i];

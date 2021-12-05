@@ -32,6 +32,10 @@ public abstract class Entity {
         this.img = img;
     }
 
+    public Entity() {
+
+    }
+
     public Entity getAt(int XUnit, int YUnit, List<Entity> entities) {
         for (Entity entity : entities) {
             if (entity.getXUnit() == XUnit && entity.getYUnit() == YUnit) {

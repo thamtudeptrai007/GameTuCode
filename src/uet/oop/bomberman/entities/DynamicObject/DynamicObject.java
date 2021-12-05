@@ -13,6 +13,8 @@ public abstract class DynamicObject extends Entity {
     protected int currentImg = 0;
     protected double timer = 0;
 
+    public DynamicObject() {}
+
     public DynamicObject(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img[0]);
         setAnimation(img);

@@ -20,11 +20,15 @@ public class BombermanGame extends Application {
     public static final int HEIGHT = 13;
     public static final int FPS = 24;
     public static final long TPF = 1000000000 / FPS;
-    public static final int numberLives = 7;
+    public static final int defaultNumberLives = 7;
+    public static final int defaultFlameSize = 1;
+    public static final int defaultNumberBombs = 1;
+    public static final int defaultScore = 0;
 
     public GraphicsContext gc;
     public Canvas canvas;
-    public GameMap map;
+    private GameMap map;
+    private final Bomber bomber = new Bomber(defaultFlameSize, defaultNumberBombs, defaultNumberLives, defaultScore);
 
     private long lastTime;
 
@@ -51,7 +55,7 @@ public class BombermanGame extends Application {
 
         map = new GameMap(scene, gc, canvas,1);
 
-        map.createMap(numberLives, 0);
+        map.createMap(bomber);
         //Sound.playBackground();
 
         AnimationTimer timer = new AnimationTimer() {
@@ -61,12 +65,11 @@ public class BombermanGame extends Application {
                     map.render();
                     map.update(now);
                     lastTime = now;
-                    //System.out.println();
+                    //System.out.println(map.getPortal());
                 }
+
             }
         };
         timer.start();
-
-
     }
 }
