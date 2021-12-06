@@ -46,7 +46,7 @@ public abstract class Entity {
         return null;
     }
 
-    public boolean checkCollision(Entity other) {
+    public boolean checkCollision(Entity other, int cheatDistance) {
         int curLeft = this.x;
         int curRight = curLeft + Sprite.DEFAULT_SIZE - 1;
         int curTop = this.y;
@@ -56,10 +56,12 @@ public abstract class Entity {
         int otherTop = other.getY();
         int otherBottom = otherTop + Sprite.DEFAULT_SIZE - 1;
 
-        return !(curRight <= otherLeft || curLeft >= otherRight || curBottom <= otherTop || curTop >= otherBottom);
+        //return !(curRight <= otherLeft || curLeft >= otherRight || curBottom <= otherTop || curTop >= otherBottom);
+        return !(cheatDistance <= otherLeft - curRight || curLeft - otherRight >= cheatDistance ||
+                cheatDistance <= otherTop - curBottom || curTop - otherBottom >= cheatDistance);
     }
 
-    public static boolean checkCollision(int curLeft, int curTop, Entity other) {
+    public static boolean checkCollision(int curLeft, int curTop, Entity other, int cheatDistance) {
         int curRight = curLeft + Sprite.DEFAULT_SIZE - 1;
         int curBottom = curTop + Sprite.DEFAULT_SIZE - 1;
         int otherLeft = other.getX();
@@ -67,7 +69,9 @@ public abstract class Entity {
         int otherTop = other.getY();
         int otherBottom = otherTop + Sprite.DEFAULT_SIZE - 1;
 
-        return !(curRight <= otherLeft || curLeft >= otherRight || curBottom <= otherTop || curTop >= otherBottom);
+        //return !(curRight <= otherLeft || curLeft >= otherRight || curBottom <= otherTop || curTop >= otherBottom);
+        return !(cheatDistance <= otherLeft - curRight || curLeft - otherRight >= cheatDistance ||
+                cheatDistance <= otherTop - curBottom || curTop - otherBottom >= cheatDistance);
     }
 
     public void render(GraphicsContext gc) {

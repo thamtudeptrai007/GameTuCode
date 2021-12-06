@@ -117,6 +117,7 @@ public class Enemy_4 extends Enemy {
                 }
             }
         }
+        randomMoving(entities);
     }
 
     public Entity getAt(int XUnit, int YUnit, List<Entity> entities) {

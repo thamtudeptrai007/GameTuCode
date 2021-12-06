@@ -32,7 +32,7 @@ public class Bomb extends DynamicObject {
             explode(entities, now);
             return;
         }
-        if (bombPass && !checkCollision(bomber)) {
+        if (bombPass && !checkCollision(bomber, 0)) {
             bombPass = false;
         }
         img = animation.get(currentImg);

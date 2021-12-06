@@ -72,7 +72,7 @@ public class Bomber extends Movable {
         }
         img = moveAnimation.get(direction.getValue()).get(currentImg);
         for (Entity entity : entities) {
-            if (entity instanceof Enemy && checkCollision(entity)
+            if (entity instanceof Enemy && checkCollision(entity, cheatDistance)
                     && ((Enemy) entity).isAlive()) {
                 dead();
                 return;
@@ -90,7 +90,7 @@ public class Bomber extends Movable {
                 int otherBottom = otherTop + Sprite.DEFAULT_SIZE;
                 int curLeft = x, curRight = curLeft + Sprite.DEFAULT_SIZE;
                 int curTop = y, curBottom = curTop + Sprite.DEFAULT_SIZE;
-                if (checkCollision(newX, newY, entity)) {
+                if (checkCollision(newX, newY, entity, 0)) {
                     switch (direction) {
                         case LEFT:
                         case RIGHT:
@@ -122,7 +122,8 @@ public class Bomber extends Movable {
                     return new Pair<>(x, y);
                 }
             }
-            if (entity instanceof Bomb && !((Bomb) entity).isBombPass() && checkCollision(newX, newY, entity)) {
+            if (entity instanceof Bomb && !((Bomb) entity).isBombPass()
+                    && checkCollision(newX, newY, entity, 0)) {
                 return new Pair<>(x, y);
             }
         }
@@ -232,7 +233,6 @@ public class Bomber extends Movable {
     public void press(List<KeyEvent> keyEvents) {
         moving = true;
         for (KeyEvent keyEvent : keyEvents) {
-            //System.out.println(keyEvent.getCode().toString());
             if (keyEvent.getCode() == KeyCode.LEFT) {
                 direction = Direction.LEFT;
                 moveSpeedX = -moveSpeed;

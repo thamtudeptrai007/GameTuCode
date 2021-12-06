@@ -16,7 +16,7 @@ public class SpeedItem extends StaticObject {
     @Override
     public void update(List<Entity> entities, long now) {
         for (Entity entity : entities) {
-            if (entity instanceof Bomber && checkCollision(entity)) {
+            if (entity instanceof Bomber && checkCollision(entity, 0)) {
                 entities.remove(this);
                 ((Bomber) entity).increaseSpeed(increaseSpeed);
                 return;

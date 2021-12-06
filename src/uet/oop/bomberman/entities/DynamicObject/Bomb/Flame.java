@@ -17,7 +17,7 @@ public class Flame extends DynamicObject {
     @Override
     public void update(List<Entity> entities, long now) {
         for (Entity entity : entities) {
-            if (entity instanceof Movable && checkCollision(entity)) {
+            if (entity instanceof Movable && checkCollision(entity, cheatDistance)) {
                 ((Movable) entity).dead();
             }
         }
@@ -33,7 +33,7 @@ public class Flame extends DynamicObject {
     public void destroy(List<Entity> entities, long now) {
         entities.remove(this);
         for (int i = 0; i < entities.size(); i++) {
-            if (entities.get(i) instanceof Bomb && checkCollision(entities.get(i))) {
+            if (entities.get(i) instanceof Bomb && checkCollision(entities.get(i), 0)) {
                 Bomb bomb = (Bomb) entities.get(i);
                 bomb.explode(entities, now);
             }

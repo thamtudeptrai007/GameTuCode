@@ -12,6 +12,7 @@ public abstract class DynamicObject extends Entity {
     protected List<Image> animation = new ArrayList<>();
     protected int currentImg = 0;
     protected double timer = 0;
+    protected int cheatDistance = -5;
 
     public DynamicObject() {}
 
