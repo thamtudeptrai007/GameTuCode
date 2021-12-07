@@ -245,13 +245,22 @@ public class GameMap {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         //stillObjects.forEach(g -> g.render(gc));
         for (Entity entity : entities) {
-            if (entity instanceof StaticObject || entity instanceof Brick)
+            if (entity instanceof StaticObject || entity instanceof Brick) {
                 entity.render(gc);
+            }
         }
 
         for (Entity entity : entities) {
-            if (!(entity instanceof StaticObject || entity instanceof Brick))
+            if (!(entity instanceof StaticObject || entity instanceof Brick)
+                    && !(entity instanceof Enemy_5) && !(entity instanceof Enemy_6)) {
                 entity.render(gc);
+            }
+        }
+
+        for (Entity entity : entities) {
+            if (entity instanceof Enemy_5 || entity instanceof Enemy_6) {
+                entity.render(gc);
+            }
         }
     }
 

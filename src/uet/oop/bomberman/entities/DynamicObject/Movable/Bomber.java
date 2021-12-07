@@ -132,13 +132,20 @@ public class Bomber extends Movable {
 
     public void addNewBomb(List<Entity> entities, long now) {
         newBomb = false;
-        int Left = this.getXUnit() * Sprite.DEFAULT_SIZE;
+        int Left = getXUnit() * Sprite.DEFAULT_SIZE;
         int Right = Left + Sprite.DEFAULT_SIZE;
-        int Top = this.getYUnit() * Sprite.DEFAULT_SIZE;
+        int Top = getYUnit() * Sprite.DEFAULT_SIZE;
         int Bot = Top + Sprite.DEFAULT_SIZE;
-        int posX = x / Sprite.DEFAULT_SIZE;
-        int posY = y / Sprite.DEFAULT_SIZE;
-        switch (direction) {
+        int posX = getXUnit();
+        int posY = getYUnit();
+
+        if (Right - x < Sprite.DEFAULT_SIZE / 2 + 3) {
+            posX++;
+        }
+        if (Bot - y < Sprite.DEFAULT_SIZE / 2 + 3) {
+            posY++;
+        }
+        /*switch (direction) {
             case LEFT:
             case RIGHT:
                 if (Right - x < Sprite.DEFAULT_SIZE / 2 + 4) {
@@ -150,7 +157,7 @@ public class Bomber extends Movable {
                 if (Bot - y < Sprite.DEFAULT_SIZE / 2 + 4) {
                     posY++;
                 }
-        }
+        }*/
         //System.out.printf("%d %d %d %d\n", x, y, Left, Right);
         //System.out.printf("%d %d\n\n", posX, posY);
         for (Entity entity : entities) {

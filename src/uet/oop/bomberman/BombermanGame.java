@@ -83,13 +83,11 @@ public class BombermanGame extends Application {
                     map.update(now);
                     lastTime = now;
                     Bomber bomber1 = map.getBomber();
-                    level.setText("Level: " + String.valueOf(map.getLevel()));
-                    time.setText("Time: " + String.valueOf(map.getTotalTime()));
-                    point.setText("Points: " + String.valueOf(bomber1.getScore()));
-                    lives.setText("Lives: " + String.valueOf(bomber1.getNumberLives()));
-
+                    level.setText("Level: " + map.getLevel());
+                    time.setText("Time: " + map.getTotalTime());
+                    point.setText("Points: " + bomber1.getScore());
+                    lives.setText("Lives: " + bomber1.getNumberLives());
                 }
-
             }
         };
         timer.start();

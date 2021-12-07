@@ -108,7 +108,7 @@ public class Enemy_3 extends Enemy {
                 }
                 break;
         }
-        System.out.println();
+        //System.out.println();
     }
 
     public void BFS(Bomber bomber, List<Entity> entities) {

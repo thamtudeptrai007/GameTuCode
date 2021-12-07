@@ -2,6 +2,9 @@ package uet.oop.bomberman.entities.DynamicObject.Bomb;
 
 import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.DynamicObject.DynamicObject;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_4;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_5;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_6;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Movable;
 import uet.oop.bomberman.entities.Entity;
 
@@ -18,7 +21,9 @@ public class Flame extends DynamicObject {
     public void update(List<Entity> entities, long now) {
         for (Entity entity : entities) {
             if (entity instanceof Movable && checkCollision(entity, cheatDistance)) {
-                ((Movable) entity).dead();
+                if (!(entity instanceof Enemy_5) && !(entity instanceof Enemy_6)) {
+                    ((Movable) entity).dead();
+                }
             }
         }
 
