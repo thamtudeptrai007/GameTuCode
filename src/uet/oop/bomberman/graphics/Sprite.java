@@ -33,7 +33,7 @@ public class Sprite {
 	public static Sprite grass = new Sprite(32, 0, 0, SpriteSheet.tiles_grass, 16, 16);
 	public static Sprite brick = new Sprite(32, 0, 0, SpriteSheet.tiles_brick, 16, 16);
 	public static Sprite wall = new Sprite(32, 0, 0, SpriteSheet.tiles_wall, 16, 16);
-	public static Sprite portal = new Sprite(16, 4, 0, SpriteSheet.tiles, 14, 14);
+	public static Sprite portal = new Sprite(32, 0, 0, SpriteSheet.tiles_portal, 14, 14);
 
 	/*
 	|--------------------------------------------------------------------------

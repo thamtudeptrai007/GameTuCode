@@ -43,8 +43,8 @@ public class Animation {
             Sprite.enemy_2_random_speed_up2);
     public static Animation enemy_1_random_speed_down = new Animation(Sprite.enemy_2_random_speed_down1,
             Sprite.enemy_2_random_speed_down2);
-    public static Animation enemy_1_random_speed_dead =new Animation(Sprite.enemy_1_random_dead1,
-            Sprite.enemy_1_random_dead2, Sprite.enemy_1_random_dead3);
+    public static Animation enemy_1_random_speed_dead =new Animation(Sprite.enemy_1_random_speed_dead1,
+            Sprite.enemy_1_random_speed_dead2, Sprite.enemy_1_random_speed_dead3, Sprite.enemy_1_random_speed_dead4);
 
     // enemy_3
     public static Animation enemy_3_left = new Animation(Sprite.enemy_3_left1,

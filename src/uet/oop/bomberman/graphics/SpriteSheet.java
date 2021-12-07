@@ -20,6 +20,7 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_grass = new SpriteSheet("/new_sprites_32/grass_snow.png", 32);
 	public static SpriteSheet tiles_wall = new SpriteSheet("/new_sprites_32/wall.png", 32);
 	public static SpriteSheet tiles_brick = new SpriteSheet("/new_sprites_32/brick.png", 32);
+	public static SpriteSheet tiles_portal = new SpriteSheet("/new_sprites_32/portal.png", 32);
 
 	//load anh player
 	public static SpriteSheet tiles = new SpriteSheet("/textures/classic.png", 256);
@@ -138,7 +139,7 @@ public class SpriteSheet {
 
 	public static SpriteSheet tiles_horizontal_left_last = new SpriteSheet("/new_sprites_32/explosion_horizontal_left_last.png", 32);
 	public static SpriteSheet tiles_horizontal_left_last1 = new SpriteSheet("/new_sprites_32/explosion_horizontal_left_last1.png", 32);
-	public static SpriteSheet tiles_horizontal_left_last2 = new SpriteSheet("/new_sprites_32/explosion_horizontal_left_last.png", 32);
+	public static SpriteSheet tiles_horizontal_left_last2 = new SpriteSheet("/new_sprites_32/explosion_horizontal_left_last2.png", 32);
 
 	public static SpriteSheet tiles_horizontal_right_last = new SpriteSheet("/new_sprites_32/explosion_horizontal_right_last.png", 32);
 	public static SpriteSheet tiles_horizontal_right_last1 = new SpriteSheet("/new_sprites_32/explosion_horizontal_right_last1.png", 32);
