@@ -24,7 +24,7 @@ public abstract class Enemy extends Movable  {
 
     public Enemy(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        SPF = 0.25;
+        SPF = 0.11;
     }
 
     @Override
@@ -42,7 +42,7 @@ public abstract class Enemy extends Movable  {
     @Override
     public void update(List<Entity> entities, long now) {
         if (!alive) {
-            timer += 0.15;
+            timer += SPF;
             currentImg = (int) (timer >= 0 ? timer : 0) % deadAnimation.size();
             img = deadAnimation.get(currentImg);
 
@@ -56,7 +56,6 @@ public abstract class Enemy extends Movable  {
                 }
             }
             return;
-
         }
 
         enemyUpdate(entities, now);
@@ -72,7 +71,7 @@ public abstract class Enemy extends Movable  {
     public List<Direction> canMove(List<Entity> entities) {
         int xUnit = getXUnit();
         int yUnit = getYUnit();
-        List<Direction> dir = new ArrayList<Direction>();
+        List<Direction> dir = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
             int newXUnit = xUnit + listNewXUnit[i];
@@ -86,7 +85,6 @@ public abstract class Enemy extends Movable  {
     public void randomMoving(List<Entity> entities) {
         Random generator = new Random();
         moving = true;
-        moveSpeed = 2;
 
         int randomDirection;
         if (x % Sprite.DEFAULT_SIZE == 0 && y % Sprite.DEFAULT_SIZE == 0) {

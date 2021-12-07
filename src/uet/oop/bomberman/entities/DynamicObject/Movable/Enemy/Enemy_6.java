@@ -14,7 +14,7 @@ public class Enemy_6 extends Enemy{
     public Enemy_6(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
         direction = Direction.DOWN;
-        moveSpeed = 2;
+        moveSpeed = 1;
     }
 
     @Override

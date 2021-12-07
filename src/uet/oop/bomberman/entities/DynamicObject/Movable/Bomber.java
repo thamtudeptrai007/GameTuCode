@@ -31,12 +31,14 @@ public class Bomber extends Movable {
         super( x, y, img);
     }
 
-    public Bomber(int flameSize, int numberBombs, int numberLives, int score) {
+    public Bomber(int flameSize, int numberBombs, int numberLives, int score, double SPF, int moveSpeed) {
         super();
         this.flameSize = flameSize;
         this.numberBombs = numberBombs;
         this.numberLives = numberLives;
         this.score = score;
+        this.SPF = SPF;
+        this.moveSpeed = moveSpeed;
     }
 
     public void setAll(Bomber other) {
@@ -44,12 +46,14 @@ public class Bomber extends Movable {
         this.numberBombs = other.getNumberBombs();
         this.numberLives = other.getNumberLives();
         this.score = other.getScore();
+        this.SPF = other.getSPF();
+        this.moveSpeed = other.getMoveSpeed();
     }
 
     @Override
     public void update(List<Entity> entities, long now) {
         if (!alive) {
-            timer += 0.2;
+            timer += 0.15;
             currentImg = (int) (timer >= 0 ? timer : 0) % deadAnimation.size();
             img = deadAnimation.get(currentImg);
             if (currentImg == deadAnimation.size() - 1) {
@@ -145,21 +149,7 @@ public class Bomber extends Movable {
         if (Bot - y < Sprite.DEFAULT_SIZE / 2 + 3) {
             posY++;
         }
-        /*switch (direction) {
-            case LEFT:
-            case RIGHT:
-                if (Right - x < Sprite.DEFAULT_SIZE / 2 + 4) {
-                    posX++;
-                }
-                break;
-            case UP:
-            case DOWN:
-                if (Bot - y < Sprite.DEFAULT_SIZE / 2 + 4) {
-                    posY++;
-                }
-        }*/
-        //System.out.printf("%d %d %d %d\n", x, y, Left, Right);
-        //System.out.printf("%d %d\n\n", posX, posY);
+
         for (Entity entity : entities) {
             if (entity instanceof Bomb) {
                 if (entity.getXUnit() == posX && entity.getYUnit() == posY) {
@@ -201,20 +191,27 @@ public class Bomber extends Movable {
     }
 
     public void increaseLive() {
-        if (numberLives < BombermanGame.defaultNumberLives)
+        if (numberLives < BombermanGame.maxNumberLives)
              numberLives++;
     }
 
     public void increaseSpeed(int value) {
-        moveSpeed += value;
+        if (moveSpeed < BombermanGame.maxSpeed) {
+            moveSpeed += value;
+            SPF += 0.08;
+        }
     }
 
     public void increaseFlameSize() {
-        flameSize++;
+        if (flameSize < BombermanGame.maxFlameSizes) {
+            flameSize++;
+        }
     }
 
     public void increaseNumberBombs() {
-        numberBombs++;
+        if (numberBombs < BombermanGame.maxNumberBombs) {
+            numberBombs++;
+        }
     }
 
     public void increaseScore(int value) {

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Bomb extends DynamicObject {
     public static final int timeToExplode = 2;
-    private static final double SPF = 0.25;
+    private static final double SPF = 0.15;
     private final long setupTime;
     private final int size;
     private boolean bombPass = true;

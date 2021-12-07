@@ -12,7 +12,8 @@ import java.util.Random;
 public class Enemy_1_random extends Enemy {
     public Enemy_1_random(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        moveSpeed = 2;
+        moveSpeed = 1;
+        SPF = 0.11;
     }
 
     @Override

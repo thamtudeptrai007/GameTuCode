@@ -14,8 +14,8 @@ import static uet.oop.bomberman.Support.Direction.numberOfDirection;
 
 public abstract class Movable extends DynamicObject {
 
-    public static final int defaultSpeed = 4;
-    protected double SPF = 0.8;
+    public static final int defaultSpeed = 2;
+    protected double SPF = 1.6;
     protected int moveSpeed = defaultSpeed;
     protected int moveSpeedX = 0;
     protected int moveSpeedY = 0;
@@ -69,5 +69,13 @@ public abstract class Movable extends DynamicObject {
 
     public boolean isAlive() {
         return alive;
+    }
+
+    public double getSPF() {
+        return SPF;
+    }
+
+    public int getMoveSpeed() {
+        return moveSpeed;
     }
 }

@@ -13,7 +13,8 @@ public class Enemy_2_random_speed extends Enemy {
 
     public Enemy_2_random_speed(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        moveSpeedY = 4;
+        moveSpeedY = 2;
+        SPF = 0.2;
     }
 
     @Override

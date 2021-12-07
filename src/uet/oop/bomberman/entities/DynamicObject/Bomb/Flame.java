@@ -11,7 +11,7 @@ import uet.oop.bomberman.entities.Entity;
 import java.util.List;
 
 public class Flame extends DynamicObject {
-    private static final double SPF = 0.25;
+    private static final double SPF = 0.15;
 
     public Flame(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);

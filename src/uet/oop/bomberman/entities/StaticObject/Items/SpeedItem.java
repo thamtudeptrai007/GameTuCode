@@ -8,7 +8,7 @@ import uet.oop.bomberman.entities.StaticObject.StaticObject;
 import java.util.List;
 
 public class SpeedItem extends StaticObject {
-    public static final int increaseSpeed = 2;
+    public static final int increaseSpeed = 1;
     public SpeedItem(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }

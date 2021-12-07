@@ -17,7 +17,7 @@ import java.util.*;
 public class Enemy_3 extends Enemy {
 
     private final int distanceToRunAfter = 5;
-    private final int speedToRunAfter = 4;
+    private final int speedToRunAfter = 2;
     private final boolean[][] visited = new boolean[50][50];
     private final int[][] f = new int[50][50];
     private final Pair<Integer, Integer>[][] last = new Pair[50][50];
@@ -27,6 +27,7 @@ public class Enemy_3 extends Enemy {
     public Enemy_3(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
         score = 1000;
+        moveSpeed = 1;
     }
 
     @Override
@@ -45,7 +46,6 @@ public class Enemy_3 extends Enemy {
     public void trace(int curXUnit, int curYUnit) {
         for (int i = 0; i < BombermanGame.WIDTH; i++) {
             for (int j = 0; j < BombermanGame.HEIGHT; j++) {
-
                 state[i][j] = 0;
             }
         }
