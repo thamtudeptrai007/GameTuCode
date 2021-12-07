@@ -25,7 +25,7 @@ public class Bomber extends Movable {
     private int numberBombs;
     private int numberLives;
     private int score;
-    private List<Bomb> bombList = new ArrayList<Bomb>();
+    private final List<Bomb> bombList = new ArrayList<>();
 
     public Bomber(int x, int y, Image... img) {
         super( x, y, img);

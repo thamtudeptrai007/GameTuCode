@@ -30,7 +30,7 @@ public class BombermanGame extends Application {
     public static final long TPF = 1000000000 / FPS;
     public static final int defaultNumberLives = 7;
     public static final int defaultFlameSize = 1;
-    public static final int defaultNumberBombs = 1;
+    public static final int defaultNumberBombs = 3;
     public static final int defaultScore = 0;
     public static final double defaultSPF = 0.11;
     public static final int defaultSpeed = 2;

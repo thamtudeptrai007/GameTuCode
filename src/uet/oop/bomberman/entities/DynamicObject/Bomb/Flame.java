@@ -30,7 +30,7 @@ public class Flame extends DynamicObject {
         img = animation.get(currentImg);
         timer += SPF;
         currentImg = (int) timer;
-        if (currentImg == animation.size()) {
+        if (currentImg == animation.size() - 1) {
             destroy(entities, now);
         }
     }
@@ -38,7 +38,7 @@ public class Flame extends DynamicObject {
     public void destroy(List<Entity> entities, long now) {
         entities.remove(this);
         for (int i = 0; i < entities.size(); i++) {
-            if (entities.get(i) instanceof Bomb && checkCollision(entities.get(i), 0)) {
+            if (entities.get(i) instanceof Bomb && checkCollision(entities.get(i), -15)) {
                 Bomb bomb = (Bomb) entities.get(i);
                 bomb.explode(entities, now);
             }

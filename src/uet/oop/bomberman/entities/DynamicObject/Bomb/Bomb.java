@@ -6,6 +6,7 @@ import uet.oop.bomberman.entities.DynamicObject.BrickExplode;
 import uet.oop.bomberman.entities.DynamicObject.DynamicObject;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.StaticObject.Wall;
 import uet.oop.bomberman.graphics.Animation;
 
 import java.util.List;
@@ -60,8 +61,15 @@ public class Bomb extends DynamicObject {
                 if (entity instanceof Brick) {
                     entities.add(new BrickExplode(xUnit + i, yUnit, Animation.brick_explode.getFxImages()));
                     entities.remove(entity);
+                    break;
                 }
-                break;
+                if (entity instanceof Wall || entity instanceof Bomb) {
+                    break;
+                }
+                if (entity instanceof Flame) {
+                    //((Bomb) entity).explode(entities, now);
+                    continue;
+                }
             }
             if (i < size) {
                 entities.add(new Flame(xUnit + i, yUnit, Animation.explosion_horizontal.getFxImages()));
@@ -80,8 +88,15 @@ public class Bomb extends DynamicObject {
                 if (entity instanceof Brick) {
                     entities.add(new BrickExplode(xUnit - i, yUnit, Animation.brick_explode.getFxImages()));
                     entities.remove(entity);
+                    break;
                 }
-                break;
+                if (entity instanceof Wall || entity instanceof Bomb) {
+                    break;
+                }
+                if (entity instanceof Flame) {
+                    //((Bomb) entity).explode(entities, now);
+                    continue;
+                }
             }
             if (i < size) {
                 entities.add(new Flame(xUnit - i, yUnit, Animation.explosion_horizontal.getFxImages()));
@@ -100,8 +115,15 @@ public class Bomb extends DynamicObject {
                 if (entity instanceof Brick) {
                     entities.add(new BrickExplode(xUnit, yUnit - i, Animation.brick_explode.getFxImages()));
                     entities.remove(entity);
+                    break;
                 }
-                break;
+                if (entity instanceof Wall || entity instanceof Bomb) {
+                    break;
+                }
+                if (entity instanceof Flame) {
+                    //((Bomb) entity).explode(entities, now);
+                    continue;
+                }
             }
             if (i < size) {
                 entities.add(new Flame(xUnit, yUnit - i, Animation.explosion_vertical.getFxImages()));
@@ -120,8 +142,15 @@ public class Bomb extends DynamicObject {
                 if (entity instanceof Brick) {
                     entities.add(new BrickExplode(xUnit, yUnit + i, Animation.brick_explode.getFxImages()));
                     entities.remove(entity);
+                    break;
                 }
-                break;
+                if (entity instanceof Wall || entity instanceof Bomb) {
+                    break;
+                }
+                if (entity instanceof Flame) {
+                    //((Bomb) entity).explode(entities, now);
+                    continue;
+                }
             }
             if (i < size) {
                 entities.add(new Flame(xUnit, yUnit + i, Animation.explosion_vertical.getFxImages()));
@@ -133,5 +162,15 @@ public class Bomb extends DynamicObject {
 
     public boolean isBombPass() {
         return bombPass;
+    }
+
+    public Entity getAt(int XUnit, int YUnit, List<Entity> entities) {
+        for (Entity entity : entities) {
+            if (entity.getXUnit() == XUnit && entity.getYUnit() == YUnit) {
+                if (entity instanceof Brick || entity instanceof Wall || entity instanceof Bomb || entity instanceof Flame)
+                    return entity;
+            }
+        }
+        return null;
     }
 }
