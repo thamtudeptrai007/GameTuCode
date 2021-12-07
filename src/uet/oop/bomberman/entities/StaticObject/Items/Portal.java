@@ -3,6 +3,8 @@ package uet.oop.bomberman.entities.StaticObject.Items;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_5;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy_6;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.StaticObject.StaticObject;
 
@@ -18,7 +20,9 @@ public class Portal extends StaticObject {
     public void update(List<Entity> entities, long now) {
         for (Entity entity : entities) {
             if (entity instanceof Enemy && ((Enemy) entity).isAlive()) {
-                return;
+                if (!(entity instanceof Enemy_5) && !(entity instanceof Enemy_6)) {
+                    return;
+                }
             }
         }
         for (Entity entity : entities) {
