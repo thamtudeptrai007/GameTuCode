@@ -6,11 +6,15 @@ import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import uet.oop.bomberman.BombermanGame;
+import uet.oop.bomberman.Support.Sound;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,8 @@ public class ViewManager {
     private final static int MENU_BUTTON_START_X = 100;
     private final static int MENU_BUTTON_START_Y = 80;
 
+    public final static String FONT_PATH = "/resources/kenvector_future.ttf";
+    
     private Menu_subScene creditsSubscene;
     private Menu_subScene helpSubscene;
     private Menu_subScene scoreSubscene;
@@ -65,6 +71,72 @@ public class ViewManager {
         scoreSubscene = new Menu_subScene();
         mainPane.getChildren().add(scoreSubscene);
 
+        creatCreditsSubscene();
+        creatHelpSubscene();
+
+    }
+
+    private void creatCreditsSubscene() {
+        creditsSubscene = new Menu_subScene();
+        mainPane.getChildren().add(creditsSubscene);
+
+        InfoLabel creditsLabel = new InfoLabel("ABOUT US:");
+        InfoLabel lb_cr_line1 = new InfoLabel("1 . LE VAN HUY - K65 C-CLC");
+        InfoLabel lb_cr_line2 = new InfoLabel("2. LE NGOC MINH -  K65 CD");
+        InfoLabel lb_cr_line3 = new InfoLabel("3. NGUYEN VAN DUNG - K65 CD");
+        InfoLabel lb_cr_line4 = new InfoLabel("INSTRUCTOR: MISS HUYEN");
+
+        creditsLabel.setLayoutX(200);
+        creditsLabel.setLayoutY(30);
+
+        lb_cr_line1.setLayoutX(60);
+        lb_cr_line1.setLayoutY(80);
+        lb_cr_line2.setLayoutX(60);
+        lb_cr_line2.setLayoutY(120);
+        lb_cr_line3.setLayoutX(60);
+        lb_cr_line3.setLayoutY(160);
+        lb_cr_line4.setLayoutX(80);
+        lb_cr_line4.setLayoutY(220);
+
+        creditsSubscene.getPane().getChildren().add(creditsLabel);
+        creditsSubscene.getPane().getChildren().add(lb_cr_line1);
+        creditsSubscene.getPane().getChildren().add(lb_cr_line2);
+        creditsSubscene.getPane().getChildren().add(lb_cr_line3);
+        creditsSubscene.getPane().getChildren().add(lb_cr_line4);
+    }
+
+    private void creatHelpSubscene() {
+        helpSubscene = new Menu_subScene();
+        mainPane.getChildren().add(helpSubscene);
+
+        InfoLabel creditsLabel = new InfoLabel("HOW TO PLAY:");
+        InfoLabel lb_cr_line1 = new InfoLabel("- PRESS LEFT, RIGHT, UP, DOWN TO MOVE");
+        InfoLabel lb_cr_line2 = new InfoLabel("- PRESS SPACEBAR TO SET BOM");
+        InfoLabel lb_cr_line3 = new InfoLabel("- KILL ALL ENEMY ON THE PLAY SCREEN");
+        InfoLabel lb_cr_line4 = new InfoLabel("- MOVE TO THE POTAL TO NEXT LEVEL ");
+
+        creditsLabel.setLayoutX(180);
+        creditsLabel.setLayoutY(30);
+
+        lb_cr_line1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_cr_line2.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_cr_line3.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_cr_line4.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+
+        lb_cr_line1.setLayoutX(25);
+        lb_cr_line1.setLayoutY(80);
+        lb_cr_line2.setLayoutX(25);
+        lb_cr_line2.setLayoutY(120);
+        lb_cr_line3.setLayoutX(25);
+        lb_cr_line3.setLayoutY(160);
+        lb_cr_line4.setLayoutX(25);
+        lb_cr_line4.setLayoutY(200);
+
+        helpSubscene.getPane().getChildren().add(creditsLabel);
+        helpSubscene.getPane().getChildren().add(lb_cr_line1);
+        helpSubscene.getPane().getChildren().add(lb_cr_line2);
+        helpSubscene.getPane().getChildren().add(lb_cr_line3);
+        helpSubscene.getPane().getChildren().add(lb_cr_line4);
     }
 
     private void AddMenuButtons(Menu_Button button) {
@@ -94,6 +166,8 @@ public class ViewManager {
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                Sound.playMouseClick();
+                //Sound.playMouseRelease();
                 BombermanGame bombermanGame = new BombermanGame();
                 try {
                     bombermanGame.creatNewGame(mainStage);
@@ -103,19 +177,18 @@ public class ViewManager {
 
             }
         });
-
     }
+
 
     private void createScoresButton() {
         Menu_Button scoresButton = new Menu_Button("SCORES");
         AddMenuButtons(scoresButton);
 
         scoresButton.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent event) {
                 showSubScene(scoreSubscene);
-
+                Sound.playMouseClick();
             }
         });
     }
@@ -128,8 +201,8 @@ public class ViewManager {
 
             @Override
             public void handle(ActionEvent event) {
+                Sound.playMouseClick();
                 showSubScene(helpSubscene);
-
             }
         });
     }
@@ -144,10 +217,9 @@ public class ViewManager {
             @Override
             public void handle(ActionEvent event) {
                 showSubScene(creditsSubscene);
-
+                Sound.playMouseClick();
             }
         });
-
     }
 
     private void createExitButton() {
@@ -155,11 +227,10 @@ public class ViewManager {
         AddMenuButtons(exitButton);
 
         exitButton.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent event) {
                 mainStage.close();
-
+                Sound.playMouseClick();
             }
         });
     }

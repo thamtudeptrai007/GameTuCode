@@ -7,6 +7,7 @@ import javafx.scene.effect.Effect;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
+import uet.oop.bomberman.Support.Sound;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -66,6 +67,7 @@ public class Menu_Button extends Button {
             public void handle(MouseEvent event) {
                 if (event.getButton().equals(MouseButton.PRIMARY)) {
                     setButtonReleasedStyle();
+                    Sound.playMouseRelease();
                 }
 
             }
@@ -76,7 +78,7 @@ public class Menu_Button extends Button {
             @Override
             public void handle(MouseEvent event) {
                 setEffect(new DropShadow());
-
+                Sound.playMouseRelease();
             }
         });
 

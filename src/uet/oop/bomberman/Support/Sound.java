@@ -15,9 +15,13 @@ public class Sound {
     public static String item = "res\\sound\\item.wav";
     public static String mosterDie = "res\\sound\\monster_die.wav";
     public static String newbomb = "res\\sound\\newbomb.wav";
-    public static String destroy ="res\\sound\\destroy.wav";
     public static String footsteps ="res\\sound\\buoc_chan.wav";
     public static String background ="res\\sound\\beat_thangdien.wav";
+    public static String mouseRelease ="res\\sound\\mouse_release.wav";
+    public static String click ="res\\sound\\select_click.wav";
+    public static String win ="res\\sound\\win.wav";
+
+
 
     public static void play( String filePath){
         File file = new File(filePath);
@@ -35,9 +39,6 @@ public class Sound {
         }
     }
 
-    public static void playDestroy(){
-        Sound.play(destroy);
-    }
 
     public static void playBombExplose(){
         Sound.play(bombExplose);
@@ -70,5 +71,11 @@ public class Sound {
     public static void playBackground(){
         Sound.play(background);
     }
+//
+    public static void playMouseRelease(){Sound.play(mouseRelease);}
+
+    public static void playMouseClick(){Sound.play(click);}
+
+    public static void playGameWin(){Sound.play(win);}
 
 }

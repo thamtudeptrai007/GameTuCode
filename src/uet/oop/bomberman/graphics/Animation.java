@@ -102,7 +102,7 @@ public class Animation {
     public static Animation bomb_exploded = new Animation(Sprite.bomb_exploded,
             Sprite.bomb_exploded1, Sprite.bomb_exploded2);
     public static Animation explosion_horizontal = new Animation(Sprite.explosion_horizontal,
-            Sprite.explosion_horizontal2,
+            Sprite.explosion_horizontal1,
             Sprite.explosion_horizontal2);
     public static Animation explosion_horizontal_left = new Animation(Sprite.explosion_horizontal_left_last,
             Sprite.explosion_horizontal_left_last1,
