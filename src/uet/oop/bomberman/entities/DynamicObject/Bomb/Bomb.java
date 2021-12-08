@@ -64,6 +64,13 @@ public class Bomb extends DynamicObject {
                     break;
                 }
                 if (entity instanceof Wall || entity instanceof Bomb) {
+                    if (entity instanceof Bomb) {
+                        if (i < size) {
+                            entities.add(new Flame(xUnit + i, yUnit, Animation.explosion_horizontal.getFxImages()));
+                        } else {
+                            entities.add(new Flame(xUnit + i, yUnit, Animation.explosion_horizontal_right.getFxImages()));
+                        }
+                    }
                     break;
                 }
                 if (entity instanceof Flame) {
@@ -91,6 +98,13 @@ public class Bomb extends DynamicObject {
                     break;
                 }
                 if (entity instanceof Wall || entity instanceof Bomb) {
+                    if (entity instanceof Bomb) {
+                        if (i < size) {
+                            entities.add(new Flame(xUnit - i, yUnit, Animation.explosion_horizontal.getFxImages()));
+                        } else {
+                            entities.add(new Flame(xUnit - i, yUnit, Animation.explosion_horizontal_left.getFxImages()));
+                        }
+                    }
                     break;
                 }
                 if (entity instanceof Flame) {
@@ -118,6 +132,13 @@ public class Bomb extends DynamicObject {
                     break;
                 }
                 if (entity instanceof Wall || entity instanceof Bomb) {
+                    if (entity instanceof Bomb) {
+                        if (i < size) {
+                            entities.add(new Flame(xUnit, yUnit - i, Animation.explosion_vertical.getFxImages()));
+                        } else {
+                            entities.add(new Flame(xUnit, yUnit - i, Animation.explosion_vertical_top.getFxImages()));
+                        }
+                    }
                     break;
                 }
                 if (entity instanceof Flame) {
@@ -145,6 +166,13 @@ public class Bomb extends DynamicObject {
                     break;
                 }
                 if (entity instanceof Wall || entity instanceof Bomb) {
+                    if (entity instanceof Bomb) {
+                        if (i < size) {
+                            entities.add(new Flame(xUnit, yUnit + i, Animation.explosion_vertical.getFxImages()));
+                        } else {
+                            entities.add(new Flame(xUnit, yUnit + i, Animation.explosion_vertical_down.getFxImages()));
+                        }
+                    }
                     break;
                 }
                 if (entity instanceof Flame) {

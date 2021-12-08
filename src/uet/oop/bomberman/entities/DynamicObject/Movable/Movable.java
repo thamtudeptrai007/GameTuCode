@@ -2,8 +2,10 @@ package uet.oop.bomberman.entities.DynamicObject.Movable;
 
 import javafx.scene.image.Image;
 import javafx.util.Pair;
+import uet.oop.bomberman.Support.Sound;
 import uet.oop.bomberman.entities.DynamicObject.DynamicObject;
 import uet.oop.bomberman.Support.Direction;
+import uet.oop.bomberman.entities.DynamicObject.Movable.Enemy.Enemy;
 import uet.oop.bomberman.entities.Entity;
 
 import java.util.ArrayList;
@@ -60,8 +62,16 @@ public abstract class Movable extends DynamicObject {
     public abstract Pair<Integer, Integer> trueCoordinates(List<Entity> entities, int newX, int newY);
 
     public void dead() {
-        alive = false;
+        if (alive) {
+            if (this instanceof Bomber) {
+                Sound.playBomberDie();
+            }
+            if (this instanceof Enemy) {
+                Sound.playMosterDie();
+            }
+        }
         timer = -2;
+        alive = false;
     }
     public void setDeadAnimation(Image... images) {
         Collections.addAll(deadAnimation, images);

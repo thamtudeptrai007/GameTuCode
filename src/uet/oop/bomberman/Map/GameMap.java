@@ -223,6 +223,7 @@ public class GameMap {
                         try {
                             next = next + height + 1;
                             next = (next > 70 ? 1 : next);
+                            totalTime = defaultTotalTime;
                             createMap(newBomber);
                         } catch (Exception ignored) {}
                         return;

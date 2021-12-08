@@ -31,14 +31,14 @@ public class BombermanGame {
     public static final long TPF = 1000000000 / FPS;
     public static final int defaultNumberLives = 7;
     public static final int defaultFlameSize = 1;
-    public static final int defaultNumberBombs = 3;
+    public static final int defaultNumberBombs = 1;
     public static final int defaultScore = 0;
     public static final double defaultSPF = 0.11;
     public static final int defaultSpeed = 2;
     public static final int maxNumberLives = defaultNumberLives;
     public static final int maxFlameSizes = 3;
-    public static final int maxNumberBombs = 3;
-    public static final int maxSpeed = 4;
+    public static final int maxNumberBombs = 7;
+    public static final int maxSpeed = 5;
 
     public GraphicsContext gc;
     public Canvas canvas;
@@ -108,17 +108,14 @@ public class BombermanGame {
                     map.update(now);
                     lastTime = now;
                     Bomber bomber1 = map.getBomber();
-                    level.setText("Level: " + String.valueOf(map.getLevel()));
-                    time.setText("Time: " + String.valueOf(map.getTotalTime()));
-                    point.setText("Points: " + String.valueOf(bomber1.getScore()));
-                    lives.setText("Lives: " + String.valueOf(bomber1.getNumberLives()));
+                    level.setText("Level: " + map.getLevel());
+                    time.setText("Time: " + map.getTotalTime());
+                    point.setText("Points: " + bomber1.getScore());
+                    lives.setText("Lives: " + bomber1.getNumberLives());
 
                 }
-
             }
         };
         timer.start();
     }
-
-
 }
