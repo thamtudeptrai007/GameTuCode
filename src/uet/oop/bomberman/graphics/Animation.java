@@ -93,14 +93,15 @@ public class Animation {
      * Bomb
      */
     public static Animation bomb = new Animation(Sprite.bomb, Sprite.bomb_1,
-            Sprite.bomb_2, Sprite.bomb_1);
+            Sprite.bomb_2);
 
     /*
      * FlameSegment.
      */
 
     public static Animation bomb_exploded = new Animation(Sprite.bomb_exploded,
-            Sprite.bomb_exploded1, Sprite.bomb_exploded2);
+            Sprite.bomb_exploded1,
+            Sprite.bomb_exploded2);
     public static Animation explosion_horizontal = new Animation(Sprite.explosion_horizontal,
             Sprite.explosion_horizontal1,
             Sprite.explosion_horizontal2);
