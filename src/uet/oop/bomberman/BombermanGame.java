@@ -112,7 +112,6 @@ public class BombermanGame {
                     time.setText("Time: " + map.getTotalTime());
                     point.setText("Points: " + bomber1.getScore());
                     lives.setText("Lives: " + bomber1.getNumberLives());
-
                 }
             }
         };

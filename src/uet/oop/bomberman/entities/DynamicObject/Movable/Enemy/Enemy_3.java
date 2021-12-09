@@ -17,7 +17,7 @@ import java.util.*;
 public class Enemy_3 extends Enemy {
 
     private final int distanceToRunAfter = 5;
-    private final int speedToRunAfter = 2;
+    private final int speedToRunAfter = 3;
     private final boolean[][] visited = new boolean[50][50];
     private final int[][] f = new int[50][50];
     private final Pair<Integer, Integer>[][] last = new Pair[50][50];
