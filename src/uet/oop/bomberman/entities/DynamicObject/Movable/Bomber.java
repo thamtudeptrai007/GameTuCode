@@ -235,6 +235,7 @@ public class Bomber extends Movable {
     }
 
     public void press(List<KeyEvent> keyEvents) {
+        //Sound.playFootsteps();
         moving = true;
         for (KeyEvent keyEvent : keyEvents) {
             if (keyEvent.getCode() == KeyCode.LEFT) {

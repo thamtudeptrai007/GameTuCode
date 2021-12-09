@@ -2,6 +2,7 @@ package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,9 +10,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToolBar;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Map.GameMap;
@@ -52,7 +56,7 @@ public class BombermanGame {
     private VBox vBox;
     private Stage gameStage;
     private Stage menuStage;
-
+    public final static String FONT_PATH = "/resources/kenvector_future.ttf";
 
     public Scene getScene() {
         return scene;
@@ -78,25 +82,36 @@ public class BombermanGame {
         gc = canvas.getGraphicsContext2D();
 
         //dung
-
         Text level = new Text("Level: ");
         Text time = new Text("Time: ");
         Text point = new Text("Points:");
         Text lives  = new Text("Lives:");
+        //level.setFont(Font.loadFont("Verdana", 20));
+        //time.setFont(Font.loadFont("Verdana", 18));
+        //point.setFont(Font.loadFont("Verdana", 18));
+        //lives.setFont(Font.loadFont("Verdana", 18));
 
         HBox hBox = new HBox();
         hBox.setSpacing(40) ;
+       // hBox.setPadding(new Insets(5,3,3,3));
         hBox.getChildren().addAll(level, time, point, lives);
+        //hBox.setPrefHeight(20);
         vBox = new VBox();
         vBox.getChildren().add(hBox);
         vBox.getChildren().add(canvas);
+        //vBox.setStyle("-fx-background-color: grey;");
+
+        ToolBar toolBar = new ToolBar();
 
         // Tao scene
         scene = new Scene(vBox);
         gameStage = new Stage();
         gameStage.setScene(scene);
-        map = new GameMap(scene, gc, canvas,1);
+        gameStage.getIcons().add(new Image("resources/icon.png"));
+        Text title = new Text("Level: ");
+        gameStage.setTitle("BOMBERMAN GAME JAVA");
 
+        map = new GameMap(scene, gc, canvas,1);
         map.createMap(bomber);
         //Sound.playBackground();
 
