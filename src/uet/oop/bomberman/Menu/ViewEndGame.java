@@ -58,9 +58,15 @@ public class ViewEndGame {
         });
     }
 
-    private void creatText(int point) {
-        InfoLabel line1 = new InfoLabel("Game Over!!!");
-        InfoLabel line2 = new InfoLabel("Your scores: " + point);
+    private void creatText(int point, boolean winLose) {
+        InfoLabel line1 = new InfoLabel("");
+        if (winLose) {
+            line1.setText("You Won!!!");
+        }
+        else {
+            line1.setText("Game Over");
+        }
+            InfoLabel line2 = new InfoLabel("Your scores: " + point);
 
         line1.setLayoutX(300);
         line1.setLayoutY(100);
@@ -89,7 +95,7 @@ public class ViewEndGame {
 
     private Stage menuStage;
 
-    public void creatEndGame(Stage menuStage, int point) throws FileNotFoundException {
+    public void creatEndGame(Stage menuStage, int point, boolean winLose) throws FileNotFoundException {
         endPane = new AnchorPane();
         endScene = new Scene(endPane, WIDTH, HEIGHT);
         endStage = new Stage();
@@ -110,9 +116,9 @@ public class ViewEndGame {
             for (int i = 0; i< 5; i++) {
                 String temp =  br.readLine();//Integer.valueOf(br.readLine().trim());
                 a[i] = temp;
-                System.out.println(a[i]+"//");
+                //System.out.println(a[i]+"//");
                 int ss = Integer.parseInt(a[i]);
-                System.out.println(ss+1);
+                //System.out.println(ss+1);
             }
             br.close();
             fr.close();
@@ -122,10 +128,10 @@ public class ViewEndGame {
         for (int i = 0; i< 5; i++) {
             int ss = Integer.parseInt(a[i]);
             if (point > ss) {
-                a[i] = String.valueOf(point);
-                for (int j = 4; j > i; j--){
+                for (int j = 4; j >= i + 1; j--){
                     a[j] = a[j-1];
                 }
+                a[i] = String.valueOf(point);
                 break;
             }
         }
@@ -145,7 +151,7 @@ public class ViewEndGame {
 
         createBackground();
         creatButton();
-        creatText(point);
+        creatText(point, winLose);
 
         endStage.show();
         this.menuStage = menuStage;

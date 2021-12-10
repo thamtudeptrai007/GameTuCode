@@ -42,10 +42,10 @@ public class BombermanGame {
     public static final int HEIGHT = 13;
     public static final int FPS = 33;
     public static final long TPF = 1000000000 / FPS;
-    public static final int defaultNumberLives = 3;
+    public static final int defaultNumberLives = 1;
     public static final int defaultFlameSize = 1;
     public static final int defaultNumberBombs = 1;
-    public static final int defaultScore = 0;
+    public static final int defaultScore = 5;
     public static final double defaultSPF = 0.11;
     public static final int defaultSpeed = 2;
     public static final int maxNumberLives = defaultNumberLives;
@@ -148,7 +148,7 @@ public class BombermanGame {
                         this.stop();
                         ViewEndGame viewEndGame = new ViewEndGame();
                         try {
-                            viewEndGame.creatEndGame(gameStage, bomber1.getScore());
+                            viewEndGame.creatEndGame(gameStage, bomber1.getScore(), false);
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
@@ -156,6 +156,15 @@ public class BombermanGame {
 
                     if (map.getPortal()) {
                         Sound.playStartStage();
+                        if (map.getLevel() == 3) {
+                            ViewEndGame viewEndGame = new ViewEndGame();
+                            try {
+                                viewEndGame.creatEndGame(gameStage, bomber1.getScore(), true);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                            this.stop();
+                        }
                         try {
                             map.setTotalTime(defaultTotalTime);
                             map.setNext(1);

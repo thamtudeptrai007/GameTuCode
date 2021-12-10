@@ -118,9 +118,9 @@ public class ViewManager {
 
         InfoLabel creditsLabel = new InfoLabel("HOW TO PLAY:");
         InfoLabel lb_cr_line1 = new InfoLabel("- PRESS LEFT, RIGHT, UP, DOWN TO MOVE");
-        InfoLabel lb_cr_line2 = new InfoLabel("- PRESS SPACEBAR TO SET BOM");
+        InfoLabel lb_cr_line2 = new InfoLabel("- PRESS SPACEBAR TO SET BOMB");
         InfoLabel lb_cr_line3 = new InfoLabel("- KILL ALL ENEMY ON THE PLAY SCREEN");
-        InfoLabel lb_cr_line4 = new InfoLabel("- MOVE TO THE POTAL TO NEXT LEVEL ");
+        InfoLabel lb_cr_line4 = new InfoLabel("- MOVE TO THE PORTAL TO NEXT LEVEL ");
 
         creditsLabel.setLayoutX(180);
         creditsLabel.setLayoutY(30);
@@ -158,7 +158,7 @@ public class ViewManager {
             for (int i = 0; i< 5; i++) {
                 String temp = br.readLine();
                 a[i] = temp;
-                System.out.println(temp);
+                //System.out.println(temp);
             }
             br.close();
             fr.close();
