@@ -158,7 +158,6 @@ public class SpriteSheet {
 	public static SpriteSheet tiles_brick_exploded1 = new SpriteSheet("/new_sprites_32/brick_exploded1.png", 32);
 	public static SpriteSheet tiles_brick_exploded2 = new SpriteSheet("/new_sprites_32/brick_exploded2.png", 32);
 
-
 	public SpriteSheet(String path, int size) {
 		_path = path;
 		SIZE = size;

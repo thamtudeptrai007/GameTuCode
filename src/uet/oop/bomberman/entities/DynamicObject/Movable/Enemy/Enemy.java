@@ -31,7 +31,7 @@ public abstract class Enemy extends Movable  {
     public Pair<Integer, Integer> trueCoordinates(List<Entity> entities, int newX, int newY) {
         for (Entity entity : entities) {
             if (entity instanceof Brick || entity instanceof Wall || entity instanceof Bomb) {
-                if (checkCollision(newX, newY, entity, 0)) {
+                if (checkCollision(newX, newY, entity, 1)) {
                     return new Pair<>(x, y);
                 }
             }

@@ -6,6 +6,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import uet.oop.bomberman.BombermanGame;
+import uet.oop.bomberman.Menu.ViewEndGame;
 import uet.oop.bomberman.Support.Direction;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.entities.DynamicObject.Brick;
@@ -39,9 +41,8 @@ public class GameMap {
     private List<KeyEvent> keyEventsPress = new ArrayList<>();
     private List<KeyEvent> keyEventsRelease = new ArrayList<>();
 
-    private static final int defaultTotalTime = 180;
     private long lastTime;
-    private int totalTime = defaultTotalTime;
+    private int totalTime = BombermanGame.defaultTotalTime;
 
     public GameMap(Scene scene, GraphicsContext gc, Canvas canvas, int level) {
         this.scene = scene;
@@ -190,12 +191,13 @@ public class GameMap {
             lastTime = now;
 
             if (totalTime < 0) {
+                //het gio
                 System.out.println(getPortal());
                 if (!getPortal()) {
                     System.out.println("Time over !!! You Lose");
-                    System.exit(0);
+                    //System.exit(0);
                 } else {
-                    totalTime = defaultTotalTime;
+                    totalTime = BombermanGame.defaultTotalTime;
                     level++;
                     return;
                 }
@@ -206,9 +208,16 @@ public class GameMap {
                 Bomber bomber = (Bomber) entities.get(i);
                 curLive = bomber.getNumberLives();
                 if (curLive == 0) {
+                    //het mang
                     System.out.println("You Lose !!!");
                     System.out.println("Your score: " + bomber.getScore());
-                    System.exit(0);
+                    //System.exit(0);
+                    //return;
+                    //break;
+                    //BombermanGame bombermanGame = new BombermanGame();
+
+                    // viewEndGame = new ViewEndGame();
+                    //viewEndGame.creatEndGame(bombermanGame.getGameStage());
                 }
             }
 
@@ -222,23 +231,29 @@ public class GameMap {
                     if (curLive - newBomber.getNumberLives() == 1) {
                         try {
                             next = next + height + 1;
-                            next = (next > 70 ? 1 : next);
-                            totalTime = defaultTotalTime;
+                            next = (next > 4*13+4 ? 1 : next);
+                            totalTime = BombermanGame.defaultTotalTime;
                             createMap(newBomber);
                         } catch (Exception ignored) {}
                         return;
                     }
                 }
             }
-            if (getPortal()) {
+            /*if (getPortal()) {
+                //qua man
                 try {
                     totalTime = defaultTotalTime;
                     next = 1;
                     level++;
                     createMap(newBomber);
+                    System.out.println("next level");
                 } catch (Exception ignored) {}
+
+                if (level == 3) {
+                    //end game o day
+                }
                 return;
-            }
+            }*/
         }
     }
 
@@ -308,4 +323,21 @@ public class GameMap {
         }
         return null;
     }
+
+    public int getNext() {
+        return next;
+    }
+
+    public void setNext(int next) {
+        this.next = next;
+    }
+
+    public void setTotalTime(int totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public void nextLevel(){
+        level ++;
+    }
+
 }
