@@ -42,7 +42,7 @@ public class BombermanGame {
     public static final int HEIGHT = 13;
     public static final int FPS = 33;
     public static final long TPF = 1000000000 / FPS;
-    public static final int defaultNumberLives = 1;
+    public static final int defaultNumberLives = 3;
     public static final int defaultFlameSize = 1;
     public static final int defaultNumberBombs = 1;
     public static final int defaultScore = 5;

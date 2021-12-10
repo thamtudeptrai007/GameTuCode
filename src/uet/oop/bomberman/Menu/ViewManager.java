@@ -164,7 +164,7 @@ public class ViewManager {
             fr.close();
         } catch (Exception e) {}
 
-        InfoLabel ScoresLabel = new InfoLabel("HIGHT SCORE: ");
+        InfoLabel ScoresLabel = new InfoLabel("HIGH SCORE: ");
         InfoLabel lb_sc_line1 = new InfoLabel("- No1:     " + a[0]);
         InfoLabel lb_sc_line2 = new InfoLabel("- No2:    " + a[1]);
         InfoLabel lb_sc_line3 = new InfoLabel("- No3:    " + a[2]);
