@@ -26,12 +26,13 @@ public class Bomber extends Movable {
     private int numberLives;
     private int score;
     private final List<Bomb> bombList = new ArrayList<>();
+    private boolean hack;
 
     public Bomber(int x, int y, Image... img) {
         super( x, y, img);
     }
 
-    public Bomber(int flameSize, int numberBombs, int numberLives, int score, double SPF, int moveSpeed) {
+    public Bomber(int flameSize, int numberBombs, int numberLives, int score, double SPF, int moveSpeed, boolean hack) {
         super();
         this.flameSize = flameSize;
         this.numberBombs = numberBombs;
@@ -39,6 +40,7 @@ public class Bomber extends Movable {
         this.score = score;
         this.SPF = SPF;
         this.moveSpeed = moveSpeed;
+        this.hack = hack;
     }
 
     public void setAll(Bomber other) {
@@ -48,6 +50,7 @@ public class Bomber extends Movable {
         this.score = other.getScore();
         this.SPF = other.getSPF();
         this.moveSpeed = other.getMoveSpeed();
+        this.hack = other.isHack();
     }
 
     @Override
@@ -75,11 +78,14 @@ public class Bomber extends Movable {
             }
         }
         img = moveAnimation.get(direction.getValue()).get(currentImg);
-        for (Entity entity : entities) {
-            if (entity instanceof Enemy && checkCollision(entity, cheatDistance)
-                    && ((Enemy) entity).isAlive()) {
-                dead();
-                return;
+
+        if (!hack) {
+            for (Entity entity : entities) {
+                if (entity instanceof Enemy && checkCollision(entity, cheatDistance)
+                        && ((Enemy) entity).isAlive()) {
+                    dead();
+                    return;
+                }
             }
         }
     }
@@ -232,6 +238,14 @@ public class Bomber extends Movable {
 
     public int getNumberBombs() {
         return numberBombs;
+    }
+
+    public void setHack(boolean hack) {
+        this.hack = hack;
+    }
+
+    public boolean isHack() {
+        return hack;
     }
 
     public void press(List<KeyEvent> keyEvents) {

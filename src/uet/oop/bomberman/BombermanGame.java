@@ -52,6 +52,7 @@ public class BombermanGame {
     public static final int maxFlameSizes = 3;
     public static final int maxNumberBombs = 7;
     public static final int maxSpeed = 5;
+    public static final boolean hack = false;
 
     public static final int defaultTotalTime = 300;
 
@@ -59,7 +60,7 @@ public class BombermanGame {
     public Canvas canvas;
     private GameMap map;
     private final Bomber bomber = new Bomber(defaultFlameSize, defaultNumberBombs, defaultNumberLives, defaultScore,
-                                                                defaultSPF, defaultSpeed);
+                                                                defaultSPF, defaultSpeed, hack);
 
     private long lastTime;
 
@@ -126,6 +127,7 @@ public class BombermanGame {
 
         map = new GameMap(scene, gc, canvas,1);
         map.createMap(bomber);
+
         //Sound.playBackground();
 
         AnimationTimer timer = new AnimationTimer() {
@@ -136,6 +138,7 @@ public class BombermanGame {
                     map.update(now);
                     lastTime = now;
                     Bomber bomber1 = map.getBomber();
+                    //System.out.println(bomber1.isHack());
                     level.setText("Level: " + map.getLevel());
                     time.setText("Time: " + map.getTotalTime());
                     point.setText("Points: " + bomber1.getScore());

@@ -309,12 +309,15 @@ public class GameMap {
         }
         return false;
     }
+
     public int getLevel() {
         return level;
     }
+
     public int getTotalTime() {
         return totalTime;
     }
+
     public Bomber getBomber() {
         for(Entity entity : entities) {
             if (entity instanceof Bomber) {

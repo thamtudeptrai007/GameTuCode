@@ -23,12 +23,12 @@ public class Flame extends DynamicObject {
     public void update(List<Entity> entities, long now) {
         for (Entity entity : entities) {
             if (entity instanceof Movable && checkCollision(entity, cheatDistance)) {
-                if (!(entity instanceof Enemy_5) && !(entity instanceof Enemy_6)) {
-                    ((Movable) entity).dead();
+                if ((!(entity instanceof Enemy_5) && !(entity instanceof Enemy_6))
+                    && !(entity instanceof Bomber && ((Bomber) entity).isHack())) {
+                        ((Movable) entity).dead();
+                    }
                 }
             }
-        }
-
         img = animation.get(currentImg);
         timer += SPF;
         currentImg = (int) timer;
