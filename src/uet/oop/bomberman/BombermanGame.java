@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,13 +20,21 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Map.GameMap;
+import uet.oop.bomberman.Menu.InfoLabel;
+import uet.oop.bomberman.Menu.ViewEndGame;
 import uet.oop.bomberman.Menu.ViewManager;
+import uet.oop.bomberman.Menu.ViewNextLevel;
 import uet.oop.bomberman.Support.Sound;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class BombermanGame {
 
@@ -33,7 +42,7 @@ public class BombermanGame {
     public static final int HEIGHT = 13;
     public static final int FPS = 33;
     public static final long TPF = 1000000000 / FPS;
-    public static final int defaultNumberLives = 7;
+    public static final int defaultNumberLives = 1;
     public static final int defaultFlameSize = 1;
     public static final int defaultNumberBombs = 1;
     public static final int defaultScore = 0;
@@ -43,6 +52,8 @@ public class BombermanGame {
     public static final int maxFlameSizes = 3;
     public static final int maxNumberBombs = 7;
     public static final int maxSpeed = 5;
+
+    public static final int defaultTotalTime = 300;
 
     public GraphicsContext gc;
     public Canvas canvas;
@@ -57,6 +68,8 @@ public class BombermanGame {
     private Stage gameStage;
     private Stage menuStage;
     public final static String FONT_PATH = "/resources/kenvector_future.ttf";
+
+    int temp = -1;
 
     public Scene getScene() {
         return scene;
@@ -127,9 +140,38 @@ public class BombermanGame {
                     time.setText("Time: " + map.getTotalTime());
                     point.setText("Points: " + bomber1.getScore());
                     lives.setText("Lives: " + bomber1.getNumberLives());
+
+                    if (bomber1.getNumberLives() == 0 || map.getTotalTime() < 0) {
+                        this.stop();
+                        ViewEndGame viewEndGame = new ViewEndGame();
+                        try {
+                            viewEndGame.creatEndGame(gameStage, bomber1.getScore());
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    if (map.getPortal()) {
+                        Sound.playStartStage();
+                        try {
+                            map.setTotalTime(defaultTotalTime);
+                            map.setNext(1);
+                            map.nextLevel();
+                            map.createMap(bomber1);
+
+                            System.out.println("next level");
+
+                        } catch (Exception ignored) {}
+                    }
+
                 }
             }
         };
         timer.start();
     }
+
+    public Stage getGameStage() {
+        return gameStage;
+    }
+
 }

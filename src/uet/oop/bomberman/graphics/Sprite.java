@@ -207,6 +207,7 @@ public class Sprite {
 	public static Sprite powerup_bombpass = new Sprite(32, 0, 0, SpriteSheet.tiles_powerup_bombpass, 16, 16);
 	public static Sprite powerup_flamepass = new Sprite(32, 0, 0, SpriteSheet.tiles_powerup_flamepass, 14, 14);
 
+
 	public Sprite(int size, int x, int y, SpriteSheet sheet, int rw, int rh) {
 		SIZE = size;
 		_pixels = new int[SIZE * SIZE];

@@ -15,6 +15,8 @@ import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.Support.Sound;
 
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,11 @@ public class ViewManager {
         CreateButtons();
         createLogo();
 
+        mainStage.getIcons().add(new Image("resources/icon.png"));
+        mainStage.setTitle("BOMBERMAN GAME");
+
     }
+
 
     private void showSubScene(Menu_subScene subScene) {
         if (sceneToHide != null) {
@@ -73,6 +79,7 @@ public class ViewManager {
 
         creatCreditsSubscene();
         creatHelpSubscene();
+        creatScoresSubscene();
 
     }
 
@@ -139,6 +146,59 @@ public class ViewManager {
         helpSubscene.getPane().getChildren().add(lb_cr_line4);
     }
 
+    private void creatScoresSubscene() {
+        scoreSubscene = new Menu_subScene();
+        mainPane.getChildren().add(scoreSubscene);
+
+        //lay du dieu diem tu file
+        String[] a = new String[5];
+        try {
+            FileReader fr = new FileReader("res/levels/score.txt");
+            BufferedReader br = new BufferedReader(fr);
+            for (int i = 0; i< 5; i++) {
+                String temp = br.readLine();
+                a[i] = temp;
+                System.out.println(temp);
+            }
+            br.close();
+            fr.close();
+        } catch (Exception e) {}
+
+        InfoLabel ScoresLabel = new InfoLabel("HIGHT SCORE: ");
+        InfoLabel lb_sc_line1 = new InfoLabel("- No1:     " + a[0]);
+        InfoLabel lb_sc_line2 = new InfoLabel("- No2:    " + a[1]);
+        InfoLabel lb_sc_line3 = new InfoLabel("- No3:    " + a[2]);
+        InfoLabel lb_sc_line4 = new InfoLabel("- No4:    " + a[3]);
+        InfoLabel lb_sc_line5 = new InfoLabel("- No5:    " + a[4]);
+
+        ScoresLabel.setLayoutX(180);
+        ScoresLabel.setLayoutY(30);
+
+        lb_sc_line1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_sc_line2.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_sc_line3.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_sc_line4.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+        lb_sc_line5.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 20));
+
+        lb_sc_line1.setLayoutX(100);
+        lb_sc_line1.setLayoutY(70);
+        lb_sc_line2.setLayoutX(100);
+        lb_sc_line2.setLayoutY(110);
+        lb_sc_line3.setLayoutX(100);
+        lb_sc_line3.setLayoutY(150);
+        lb_sc_line4.setLayoutX(100);
+        lb_sc_line4.setLayoutY(190);
+        lb_sc_line5.setLayoutX(100);
+        lb_sc_line5.setLayoutY(230);
+
+        scoreSubscene.getPane().getChildren().add(ScoresLabel);
+        scoreSubscene.getPane().getChildren().add(lb_sc_line1);
+        scoreSubscene.getPane().getChildren().add(lb_sc_line2);
+        scoreSubscene.getPane().getChildren().add(lb_sc_line3);
+        scoreSubscene.getPane().getChildren().add(lb_sc_line4);
+        scoreSubscene.getPane().getChildren().add(lb_sc_line5);
+    }
+
     private void AddMenuButtons(Menu_Button button) {
         button.setLayoutX(MENU_BUTTON_START_X);
         button.setLayoutY(MENU_BUTTON_START_Y + menuButtons.size() * 65);
@@ -169,11 +229,13 @@ public class ViewManager {
                 Sound.playMouseClick();
                 //Sound.playMouseRelease();
                 BombermanGame bombermanGame = new BombermanGame();
+
                 try {
                     bombermanGame.creatNewGame(mainStage);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
 
             }
         });
