@@ -105,8 +105,8 @@ public class ViewEndGame {
         try {
             FileReader fr = new FileReader("res/levels/score.txt");
             BufferedReader br = new BufferedReader(fr);
-            //File file = new File("res/levels/score.txt");
-            //Scanner sc = new Scanner(file);
+            File file = new File("res/levels/score.txt");
+            Scanner sc = new Scanner(file);
             for (int i = 0; i< 5; i++) {
                 String temp =  br.readLine();//Integer.valueOf(br.readLine().trim());
                 a[i] = temp;
@@ -114,8 +114,8 @@ public class ViewEndGame {
                 int ss = Integer.parseInt(a[i]);
                 System.out.println(ss+1);
             }
-            //br.close();
-            //fr.close();
+            br.close();
+            fr.close();
         } catch (Exception e) {}
 
 
@@ -123,7 +123,7 @@ public class ViewEndGame {
             int ss = Integer.parseInt(a[i]);
             if (point > ss) {
                 a[i] = String.valueOf(point);
-                for (int j = 4; j >= i; j--){
+                for (int j = 4; j > i; j--){
                     a[j] = a[j-1];
                 }
                 break;
@@ -139,7 +139,7 @@ public class ViewEndGame {
             }
             bw.close();
             fw.close();
-        }catch (Exception e){}
+        } catch (Exception ignored){}
 
 
 

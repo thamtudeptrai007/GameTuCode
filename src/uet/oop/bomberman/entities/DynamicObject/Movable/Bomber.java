@@ -198,7 +198,7 @@ public class Bomber extends Movable {
     public void increaseSpeed(int value) {
         if (moveSpeed < BombermanGame.maxSpeed) {
             moveSpeed += value;
-            SPF += 0.08;
+            SPF += 0.1;
         }
     }
 
