@@ -34,16 +34,16 @@ public class BombermanGame {
     public static final int FPS = 33;
     public static final long TPF = 1000000000 / FPS;
     public static final int defaultNumberLives = 3;
-    public static final int defaultFlameSize = 3;
-    public static final int defaultNumberBombs = 4;
+    public static final int defaultFlameSize = 1;
+    public static final int defaultNumberBombs = 1;
     public static final int defaultScore = 0;
     public static final double defaultSPF = 0.11;
-    public static final int defaultSpeed = 4;
+    public static final int defaultSpeed = 1;
     public static final int maxNumberLives = 5;
     public static final int maxFlameSizes = 3;
     public static final int maxNumberBombs = 5;
     public static final int maxSpeed = 5;
-    public static final boolean hack = true;
+    public static final boolean hack = false;
     public static final boolean soundBackground = false;
     public static final boolean soundEffects = false;
 
