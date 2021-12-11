@@ -14,6 +14,7 @@ public class Enemy_1_random extends Enemy {
         super(xUnit, yUnit, img);
         moveSpeed = 1;
         SPF = 0.11;
+        score = 1000;
     }
 
     @Override

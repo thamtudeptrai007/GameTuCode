@@ -20,7 +20,7 @@ public abstract class Enemy extends Movable  {
 
     protected final int[] listNewXUnit = {-1, 1, 0, 0};
     protected final int[] listNewYUnit = {0, 0, -1, 1};
-    protected int score = 100;
+    protected int score;
 
     public Enemy(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);

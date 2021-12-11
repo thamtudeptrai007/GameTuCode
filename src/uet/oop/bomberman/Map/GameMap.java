@@ -291,8 +291,8 @@ public class GameMap {
         return next;
     }
 
-    public void setNext(int next) {
-        this.next = next;
+    public void resetNext() {
+        this.next = 1;
     }
 
     public void setTotalTime(int totalTime) {
@@ -300,7 +300,7 @@ public class GameMap {
     }
 
     public void nextLevel(){
-        level ++;
+        level++;
     }
 
 }

@@ -26,7 +26,7 @@ public class Enemy_3 extends Enemy {
 
     public Enemy_3(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
-        score = 1000;
+        score = 5000;
         moveSpeed = 1;
     }
 

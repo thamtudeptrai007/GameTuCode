@@ -153,12 +153,11 @@ public class BombermanGame {
                             this.stop();
                         }
                         try {
+                            defaultBomber.setAll(bomber);
                             map.setTotalTime(defaultTotalTime);
-                            map.setNext(1);
+                            map.resetNext();
                             map.nextLevel();
                             map.createMap(bomber);
-                            defaultBomber.setAll(bomber);
-                            //System.out.println("next level");
 
                         } catch (Exception ignored) {}
                     }

@@ -25,7 +25,7 @@ public class Enemy_4 extends Enemy {
     public Enemy_4(int xUnit, int yUnit, Image... img) {
         super(xUnit, yUnit, img);
         moveSpeed = 2;
-        score = 2000;
+        score = 10000;
     }
 
     @Override
