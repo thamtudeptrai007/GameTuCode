@@ -1,16 +1,20 @@
 package uet.oop.bomberman;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Map.GameMap;
+import uet.oop.bomberman.Menu.InfoLabel;
 import uet.oop.bomberman.Menu.ViewEndGame;
 import uet.oop.bomberman.Support.Sound;
 import uet.oop.bomberman.entities.DynamicObject.Movable.Bomber;
@@ -20,6 +24,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class BombermanGame {
+
+    private static final int defaultNextLevelTime = 100;
+    private int cnt = defaultNextLevelTime;
+    private int check = 1;
 
     public static final int WIDTH = 31;
     public static final int HEIGHT = 13;
@@ -35,7 +43,7 @@ public class BombermanGame {
     public static final int maxFlameSizes = 3;
     public static final int maxNumberBombs = 5;
     public static final int maxSpeed = 5;
-    public static final boolean hack = false;
+    public static final boolean hack = true;
     public static final boolean soundBackground = false;
     public static final boolean soundEffects = false;
 
@@ -74,6 +82,7 @@ public class BombermanGame {
 
     }
 
+
     public void init() throws IOException {
 
         // Tao Canvas
@@ -81,24 +90,58 @@ public class BombermanGame {
         gc = canvas.getGraphicsContext2D();
 
         //dung
+
+        //level1
+        //Label level1 = new Label("Level 1");
+        InfoLabel level1 = new InfoLabel("Level 1!!!");
+        level1.setLayoutX(300);
+        level1.setLayoutY(150);
+        level1.setTextFill(Color.web("#FFA500"));
+        level1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
+        //level2
+        //Label level2 = new Label("level 2");
+        InfoLabel level2 = new InfoLabel("Level 2!!!");
+        level1.setLayoutX(300);
+        level1.setLayoutY(150);
+        level1.setTextFill(Color.web("#FFA500"));
+        level1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
+        //level3
+        //Label level3 = new Label("level 3");
+        InfoLabel level3 = new InfoLabel("Level 3!!!");
+        level1.setLayoutX(300);
+        level1.setLayoutY(150);
+        level1.setTextFill(Color.web("#FFA500"));
+        level1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
+
         Text level = new Text("Level: ");
         Text time = new Text("Time: ");
         Text point = new Text("Points:");
         Text lives  = new Text("Lives:");
-        //level.setFont(Font.loadFont("Verdana", 20));
-        //time.setFont(Font.loadFont("Verdana", 18));
-        //point.setFont(Font.loadFont("Verdana", 18));
-        //lives.setFont(Font.loadFont("Verdana", 18));
+        level.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 16));
+        time.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 16));
+        point.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 16));
+        lives.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 16));
 
         HBox hBox = new HBox();
         hBox.setSpacing(40) ;
-       // hBox.setPadding(new Insets(5,3,3,3));
+        hBox.setPadding(new Insets(5,3,3,3));
         hBox.getChildren().addAll(level, time, point, lives);
-        //hBox.setPrefHeight(20);
+        hBox.setPrefHeight(20);
+
+        AnchorPane hBox1 = new AnchorPane();
+        hBox1.getChildren().add(level1);
+
+        AnchorPane hBox2 = new AnchorPane();
+        hBox2.getChildren().add(level2);
+
+        AnchorPane hBox3 = new AnchorPane();
+        hBox3.getChildren().add(level3);
+
         vBox = new VBox();
         vBox.getChildren().add(hBox);
         vBox.getChildren().add(canvas);
-        //vBox.setStyle("-fx-background-color: grey;");
+        vBox.setStyle("-fx-background-color: lightblue;");
+
 
         ToolBar toolBar = new ToolBar();
 
@@ -118,50 +161,76 @@ public class BombermanGame {
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                if (now - lastTime >= TPF) {
-                    map.render();
-                    map.update(now);
-                    lastTime = now;
-
-                    Bomber bomber = map.getBomber();
-
-                    level.setText("Level: " + map.getLevel());
-                    time.setText("Time: " + map.getTotalTime());
-                    point.setText("Points: " + bomber.getScore());
-                    lives.setText("Lives: " + bomber.getNumberLives());
-
-                    if (bomber.getNumberLives() == 0 || map.getTotalTime() < 0) {
-                        this.stop();
-                        ViewEndGame viewEndGame = new ViewEndGame();
-                        try {
-                            viewEndGame.creatEndGame(gameStage, bomber.getScore(), false);
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
+                if (cnt >= 0) {
+                    if (check > 0) {
+                        check--;
+                        vBox.getChildren().removeAll(hBox, canvas);
+                        if (map.getLevel() == 1) {
+                            vBox.getChildren().add(hBox1);
+                        }
+                        if (map.getLevel() == 2) {
+                            vBox.getChildren().add(hBox2);
+                        }
+                        if (map.getLevel() == 3) {
+                            vBox.getChildren().add(hBox3);
                         }
                     }
+                    cnt--;
+                    if (cnt == 0) {
+                        vBox.getChildren().remove(0);
+                        vBox.getChildren().addAll(hBox, canvas);
+                    }
+                } else {
 
-                    if (map.getPortal()) {
-                        Sound.playStartStage();
+                    if (now - lastTime >= TPF) {
+                        map.render();
+                        map.update(now);
+                        lastTime = now;
 
-                        if (map.getLevel() == 3) {
+                        Bomber bomber = map.getBomber();
+
+                        level.setText("Level: " + map.getLevel());
+                        time.setText("Time: " + map.getTotalTime());
+                        point.setText("Points: " + bomber.getScore());
+                        lives.setText("Lives: " + bomber.getNumberLives());
+
+                        if (bomber.getNumberLives() == 0 || map.getTotalTime() < 0) {
+                            this.stop();
                             ViewEndGame viewEndGame = new ViewEndGame();
                             try {
-                                viewEndGame.creatEndGame(gameStage, bomber.getScore(), true);
+                                viewEndGame.creatEndGame(gameStage, bomber.getScore(), false);
                             } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                             }
-                            this.stop();
                         }
-                        try {
-                            defaultBomber.setAll(bomber);
-                            map.setTotalTime(defaultTotalTime);
-                            map.resetNext();
-                            map.nextLevel();
-                            map.createMap(bomber);
 
-                        } catch (Exception ignored) {}
+                        if (map.getPortal()) {
+                            Sound.playStartStage();
+
+                            if (map.getLevel() == 3) {
+                                ViewEndGame viewEndGame = new ViewEndGame();
+                                try {
+                                    viewEndGame.creatEndGame(gameStage, bomber.getScore(), true);
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                }
+                                this.stop();
+                            }
+                            try {
+                                defaultBomber.setAll(bomber);
+                                map.setTotalTime(defaultTotalTime);
+                                map.resetNext();
+                                map.nextLevel();
+                                map.createMap(bomber);
+
+                                cnt = defaultNextLevelTime;
+                                check = 1;
+
+                            } catch (Exception ignored) {
+                            }
+                        }
+
                     }
-
                 }
             }
         };
