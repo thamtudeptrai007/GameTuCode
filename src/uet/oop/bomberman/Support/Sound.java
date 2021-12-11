@@ -1,5 +1,7 @@
 package uet.oop.bomberman.Support;
 
+import uet.oop.bomberman.BombermanGame;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -40,42 +42,69 @@ public class Sound {
     }
 
 
-    public static void playBombExplose(){
-        Sound.play(bombExplose);
+    public static void playBombExplose() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(bombExplose);
+        }
     }
 
-    public static void playStartStage(){
-        Sound.play(startStage);
+    public static void playStartStage() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(startStage);
+        }
     }
 
-    public static void playBomberDie(){
-        Sound.play(bomberDie);
+    public static void playBomberDie() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(bomberDie);
+        }
     }
 
-    public static void playGetNewItem(){
-        Sound.play(item);
+    public static void playGetNewItem() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(item);
+        }
     }
 
-    public static void playMosterDie(){
-        Sound.play(mosterDie);
+    public static void playMosterDie() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(mosterDie);
+        }
     }
 
-    public static void playPlaceNewBomb(){
-        Sound.play(newbomb);
+    public static void playPlaceNewBomb() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(newbomb);
+        }
     }
 
-    public static void playFootsteps(){
-        Sound.play(footsteps);
+    public static void playFootsteps() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(footsteps);
+        }
     }
 
-    public static void playBackground(){
-        Sound.play(background);
+    public static void playBackground() {
+        if (BombermanGame.soundBackground) {
+            Sound.play(background);
+        }
     }
-//
-    public static void playMouseRelease(){Sound.play(mouseRelease);}
 
-    public static void playMouseClick(){Sound.play(click);}
+    public static void playMouseRelease() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(mouseRelease);
+        }
+    }
 
-    public static void playGameWin(){Sound.play(win);}
+    public static void playMouseClick() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(click);
+        }
+    }
 
+    public static void playGameWin() {
+        if (BombermanGame.soundEffects) {
+            Sound.play(win);
+        }
+    }
 }

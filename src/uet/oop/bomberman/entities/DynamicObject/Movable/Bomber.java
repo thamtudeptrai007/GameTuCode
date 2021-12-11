@@ -43,14 +43,22 @@ public class Bomber extends Movable {
         this.hack = hack;
     }
 
-    public void setAll(Bomber other) {
+    public void setNonExchange(Bomber other) {
         this.flameSize = other.getFlameSize();
         this.numberBombs = other.getNumberBombs();
-        this.numberLives = other.getNumberLives();
-        this.score = other.getScore();
         this.SPF = other.getSPF();
         this.moveSpeed = other.getMoveSpeed();
+    }
+
+    public void setExchange(Bomber other) {
+        this.numberLives = other.getNumberLives();
+        this.score = other.getScore();
         this.hack = other.isHack();
+    }
+
+    public void setAll(Bomber other) {
+        setNonExchange(other);
+        setExchange(other);
     }
 
     @Override
