@@ -34,11 +34,11 @@ public class BombermanGame {
     public static final int FPS = 33;
     public static final long TPF = 1000000000 / FPS;
     public static final int defaultNumberLives = 3;
-    public static final int defaultFlameSize = 1;
-    public static final int defaultNumberBombs = 1;
+    public static final int defaultFlameSize = 3;
+    public static final int defaultNumberBombs = 4;
     public static final int defaultScore = 0;
     public static final double defaultSPF = 0.11;
-    public static final int defaultSpeed = 2;
+    public static final int defaultSpeed = 4;
     public static final int maxNumberLives = 5;
     public static final int maxFlameSizes = 3;
     public static final int maxNumberBombs = 5;
@@ -53,7 +53,7 @@ public class BombermanGame {
     public Canvas canvas;
     private GameMap map;
     public static final Bomber defaultBomber = new Bomber(defaultFlameSize, defaultNumberBombs, defaultNumberLives, defaultScore,
-                                                                defaultSPF, defaultSpeed, hack);
+            defaultSPF, defaultSpeed, hack);
 
     private long lastTime;
 
@@ -92,26 +92,23 @@ public class BombermanGame {
         //dung
 
         //level1
-        //Label level1 = new Label("Level 1");
         InfoLabel level1 = new InfoLabel("Level 1!!!");
         level1.setLayoutX(300);
         level1.setLayoutY(150);
         level1.setTextFill(Color.web("#FFA500"));
         level1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
         //level2
-        //Label level2 = new Label("level 2");
         InfoLabel level2 = new InfoLabel("Level 2!!!");
-        level1.setLayoutX(300);
-        level1.setLayoutY(150);
-        level1.setTextFill(Color.web("#FFA500"));
-        level1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
+        level2.setLayoutX(300);
+        level2.setLayoutY(150);
+        level2.setTextFill(Color.web("#FFA500"));
+        level2.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
         //level3
-        //Label level3 = new Label("level 3");
         InfoLabel level3 = new InfoLabel("Level 3!!!");
-        level1.setLayoutX(300);
-        level1.setLayoutY(150);
-        level1.setTextFill(Color.web("#FFA500"));
-        level1.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
+        level3.setLayoutX(300);
+        level3.setLayoutY(150);
+        level3.setTextFill(Color.web("#FFA500"));
+        level3.setFont(Font.loadFont(getClass().getResourceAsStream(FONT_PATH), 70));
 
         Text level = new Text("Level: ");
         Text time = new Text("Time: ");
@@ -130,12 +127,26 @@ public class BombermanGame {
 
         AnchorPane hBox1 = new AnchorPane();
         hBox1.getChildren().add(level1);
+        Label rac1 = new Label(".");
+        hBox1.getChildren().add(rac1);
+        rac1.setLayoutY(500);
+        Image backgroundImage = new Image("/resources/deep_blue.png", 256, 256, false, false);
+        BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, null);
+        hBox1.setBackground(new Background(background));
 
         AnchorPane hBox2 = new AnchorPane();
         hBox2.getChildren().add(level2);
+        Label rac2 = new Label(".");
+        hBox2.getChildren().add(rac2);
+        rac2.setLayoutY(500);
+        hBox2.setBackground(new Background(background));
 
         AnchorPane hBox3 = new AnchorPane();
         hBox3.getChildren().add(level3);
+        Label rac3 = new Label(".");
+        hBox3.getChildren().add(rac3);
+        rac3.setLayoutY(500);
+        hBox3.setBackground(new Background(background));
 
         vBox = new VBox();
         vBox.getChildren().add(hBox);
